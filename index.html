@@ -1,116 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Template with Toast</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bani Nur</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Select2 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
 
-    <!-- FontAwesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 </head>
+
 <body>
-
-    <div class="container mt-5">
-        <h1 class="mb-4">Basic Template with Libraries & Toast</h1>
-
-        <!-- Example Select2 element -->
-        <div class="mb-3">
-            <label for="exampleSelect" class="form-label">Select2 Example</label>
-            <select id="exampleSelect" class="form-select select2">
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
-        </div>
-
-        <!-- Example DataTable -->
-        <table id="exampleTable" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </tbody>
-        </table>
-
-        <!-- SweetAlert2 Example Button -->
-        <button id="alertButton" class="btn btn-primary mt-4">Show SweetAlert</button>
-
-        <!-- SweetAlert2 Toast Example Button -->
-        <button id="toastButton" class="btn btn-success mt-2">Show Toast</button>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h5>Keturunan dari<br />Mbah H. Nur & Mbah Genuk</h5>
+      </div>
     </div>
+    <hr />
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <table class="table table-bordered">
+      <thead style="text-align: center">
+        <th>No</th>
+        <th>Nama Anak</th>
+        <th>Pasangan</th>
+        <th>Ket</th>
+      </thead>
+      <tbody id="table-body">
+        <!-- Rows will be dynamically inserted here -->
+      </tbody>
+    </table>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="modal-anak" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Info - <span id="judul-anak"></span></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12">
+                <table>
+                  <tr>
+                    <td>Nama Lengkap</td>
+                    <td>:</td>
+                    <th id="fullname"></th>
+                  </tr>
+                  <tr>
+                    <td>Nama Panggilan</td>
+                    <td>:</td>
+                    <th id="nickname"></th>
+                  </tr>
+                  <tr>
+                    <td>Bapak</td>
+                    <td>:</td>
+                    <th id="father"></th>
+                  </tr>
+                  <tr>
+                    <td>Ibu</td>
+                    <td>:</td>
+                    <th id="mother"></th>
+                  </tr>
+                  <tr>
+                    <td>Anak ke</td>
+                    <td>:</td>
+                    <th id="seq"></th>
+                  </tr>
+                  <tr>
+                    <td>Jenis kelamin</td>
+                    <td>:</td>
+                    <th id="gender"></th>
+                  </tr>
+                  <tr>
+                    <td>Tahun lahir</td>
+                    <td>:</td>
+                    <th id="born"></th>
+                  </tr>
+                  <tr>
+                    <td>Tahun wafat</td>
+                    <td>:</td>
+                    <th id="dead"></th>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="height: 30px;"> </td>
+                  </tr>
+                  <tr>
+                    <td>Pasangan</td>
+                    <td>:</td>
+                    <th id="partner"></th>
+                  </tr>
+                  <tr>
+                    <td>Tahun lahir</td>
+                    <td>:</td>
+                    <th id="partnerborn"></th>
+                  </tr>
+                  <tr>
+                    <td>Tahun wafat</td>
+                    <td>:</td>
+                    <th id="partnerdead"></th>
+                  </tr>
+                  <tr>
+                    <td>Jumlah anak</td>
+                    <td>:</td>
+                    <td id="child"></td>
+                  </tr>
+                </table>
 
-    <!-- Select2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+                <table>
 
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- SweetAlert2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- FontAwesome (already loaded via the CSS link) -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        // Initialize Select2
-        $('.select2').select2();
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-        // Initialize DataTable
-        $('#exampleTable').DataTable();
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
-        // SweetAlert2 Example
-        $('#alertButton').on('click', function() {
-            Swal.fire({
-                title: 'Success!',
-                text: 'This is a SweetAlert2 example.',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-            });
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- FontAwesome (already loaded via the CSS link) -->
+
+  <script>
+    const anakData = [
+      { id: 1, fullname: 'Moh. Romli', nickname: 'Romli', father: 'H. Nur', mother: 'Genuk', seq: 1, gender: 'Laki-laki', born: '1928', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 2, fullname: 'Siti Aminah', nickname: 'Ti', father: 'H. Nur', mother: 'Genuk', seq: 2, gender: 'Perempuan', born: '1931', dead: '-', partner: 'Moh. Kusnun', partnerborn: '1924', partnerdead: '-', child: '8' },
+      { id: 3, fullname: 'Kholiyah', nickname: 'Yah', father: 'H. Nur', mother: 'Genuk', seq: 3, gender: 'Perempuan', born: '1934', dead: '-', partner: 'Abd. Mu`thi', partnerborn: '1925', partnerdead: '-', child: '3' },
+      { id: 4, fullname: 'Marsinah', nickname: 'Mar', father: 'H. Nur', mother: 'Genuk', seq: 4, gender: 'Perempuan', born: '1937', dead: '-', partner: 'Abd. Shomad', partnerborn: '1927', partnerdead: '-', child: '8' },
+      { id: 5, fullname: 'Marzuqi', nickname: '-', father: 'H. Nur', mother: 'Genuk', seq: 5, gender: 'Laki-Laki', born: '1940', dead: '1940', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 6, fullname: 'Siti Khotijah', nickname: 'Is', father: 'H. Nur', mother: 'Genuk', seq: 6, gender: 'Perempuan', born: '1944', dead: '-', partner: 'Mas`ud Sufyan', partnerborn: '1929', partnerdead: '-', child: '2' },
+      { id: 7, fullname: 'M Syahri', nickname: 'Ri', father: 'H. Nur', mother: 'Genuk', seq: 7, gender: 'Laki-laki', born: '1945', dead: '-', partner: 'Siti Syamsiyah', partnerborn: '1955', partnerdead: '-', child: '3' },
+      { id: 8, fullname: 'M Bashoni', nickname: 'Bas', father: 'H. Nur', mother: 'Genuk', seq: 8, gender: 'Laki-laki', born: '1949', dead: '-', partner: 'Umi Maisaroh', partnerborn: '1959', partnerdead: '-', child: '6' }
+    ];
+
+    $(document).ready(function () {
+
+      // Function to populate table
+      function populateTable() {
+        const $tableBody = $('#table-body'); // Select table body
+
+        $.each(anakData, function (index, anak) {
+          // Create table row using jQuery
+          const $row = $('<tr></tr>');
+
+          // Append sequence number (seq)
+          $row.append(`<td style="text-align: center">${anak.seq}</td>`);
+
+          // Append fullname
+          $row.append(`<td>${anak.fullname}</td>`);
+
+          // Append nickname
+          $row.append(`<td>${anak.partner}</td>`);
+
+          // Append action buttons
+          const $actionButtons = `
+        <td style="text-align: center">
+          <button class="btn btn-sm btn-primary" onclick="openmodalanak(${anak.id})">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button class="btn btn-sm btn-success">
+            <i class="fa-solid fa-child"></i>
+          </button>
+        </td>
+      `;
+          $row.append($actionButtons);
+
+          // Append the row to the table body
+          $tableBody.append($row);
         });
+      }
 
-        // SweetAlert2 Toast Example
-        $('#toastButton').on('click', function() {
-            Swal.fire({
-                toast: true,
-                position: 'top-end',
-                icon: 'success',
-                title: 'Signed in successfully',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer);
-                    toast.addEventListener('mouseleave', Swal.resumeTimer);
-                }
-            });
-        });
-    </script>
+      // Call the function when the page loads
+      populateTable();
+
+    });
+
+
+    // function to open modal
+    function openmodalanak(id) {
+      // Find the data from anakData array based on the id
+      const anak = anakData.find(a => a.id === id);
+
+      console.log(anak.fullname); // Example usage (logging the data)
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(anak.father);
+      $('#mother').html(anak.mother);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-anak").modal("show");
+    }
+
+  </script>
 </body>
+
 </html>
