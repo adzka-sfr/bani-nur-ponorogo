@@ -31,9 +31,9 @@
     <table class="table table-bordered">
       <thead style="text-align: center">
         <th>No</th>
-        <th>Nama Anak</th>
+        <th>Anak</th>
         <th>Pasangan</th>
-        <th>Ket</th>
+        <th>Info</th>
       </thead>
       <tbody id="table-body">
         <!-- Rows will be dynamically inserted here -->
@@ -116,10 +116,6 @@
                     <td id="child"></td>
                   </tr>
                 </table>
-
-                <table>
-
-                </table>
               </div>
             </div>
           </div>
@@ -127,6 +123,7 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
+
           </div>
         </div>
       </div>
@@ -184,12 +181,20 @@
           // Append action buttons
           const $actionButtons = `
         <td style="text-align: center">
-          <button class="btn btn-sm btn-primary" onclick="openmodalanak(${anak.id})">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <button class="btn btn-sm btn-success">
-            <i class="fa-solid fa-child"></i>
-          </button>
+          <div class="row">
+              <div class="col-12 mb-3">
+                <button class="btn btn-sm btn-primary" onclick="openmodalanak(${anak.id})">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-sm btn-success">
+                  <i class="fa-solid fa-child"></i>
+                </button>
+              </div>
+            </div>
         </td>
       `;
           $row.append($actionButtons);
