@@ -37,7 +37,7 @@
             <th>Pasangan</th>
             <th>Info</th>
           </thead>
-          <tbody id="table-body">
+          <tbody id="data-table-anak">
             <!-- Rows will be dynamically inserted here -->
           </tbody>
         </table>
@@ -77,7 +77,7 @@
             <th>Pasangan</th>
             <th>Info</th>
           </thead>
-          <tbody>
+          <tbody id="data-table-putu">
 
           </tbody>
         </table>
@@ -240,7 +240,7 @@
 
       // Function to populate table
       function populateTable() {
-        const $tableBody = $('#table-body'); // Select table body
+        const $tableBody = $('#data-table-anak'); // Select table body
 
         $.each(anakData, function (index, anak) {
           // Create table row using jQuery
@@ -267,7 +267,7 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <button class="btn btn-sm btn-success" onclick="opentableputu(${anak.id})">
+                <button class="btn btn-sm btn-success" onclick="opentableputu(${anak.id},'${anak.fullname}','${anak.partner}')">
                   <i class="fa-solid fa-child"></i>
                 </button>
               </div>
@@ -279,6 +279,7 @@
           // Append the row to the table body
           $tableBody.append($row);
         });
+
       }
 
       // Call the function when the page loads
@@ -311,19 +312,61 @@
     }
 
     // function to open table putu
-    function opentableputu(id) {
-      // Find the data from anakData array based on the id
-      const anak = anakData.find(a => a.id === id);
+    function opentableputu(id, anakname, partner) {
+      const $tableBody = $('#data-table-putu'); // Select table body
 
-      $('#value-judul-anak').html(anak.fullname);
-      $('#value-judul-pasangan-anak').html(anak.partner);
+      // Clear the table body before appending new data
+      $tableBody.empty();
 
+      // Find all data from putuData array based on the rootanak
+      const putuList = putuData.filter(a => a.rootanak === id);
+
+      $.each(putuList, function (index, putu) {
+        // Create table row using jQuery
+        const $row = $('<tr></tr>');
+
+        // Append sequence number (seq)
+        $row.append(`<td style="text-align: center">${putu.seq}</td>`);
+
+        // Append fullname
+        $row.append(`<td>${putu.fullname}</td>`);
+
+        // Append partner's name
+        $row.append(`<td>${putu.partner}</td>`);
+
+        // Append action buttons
+        const $actionButtons = `
+      <td style="text-align: center">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <button class="btn btn-sm btn-primary" onclick="openmodalputu(${putu.id})">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button class="btn btn-sm btn-success" onclick="opentablebuyut(${putu.id},'${putu.fullname}','${putu.partner}')">
+              <i class="fa-solid fa-child"></i>
+            </button>
+          </div>
+        </div>
+      </td>
+    `;
+        $row.append($actionButtons);
+
+        // Append the row to the table body
+        $tableBody.append($row);
+      });
+
+      // Update the title and other elements
+      $('#value-judul-anak').html(anakname);
+      $('#value-judul-pasangan-anak').html(partner);
+
+      // Hide and show relevant sections
       $('#table-anak').hide();
       $('#table-judul-anak').show();
       $('#table-putu').show();
-
-
-
     }
 
     // function untuk kembali ke table anak
