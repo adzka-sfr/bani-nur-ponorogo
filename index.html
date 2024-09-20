@@ -28,17 +28,61 @@
     </div>
     <hr />
 
-    <table class="table table-bordered">
-      <thead style="text-align: center">
-        <th>No</th>
-        <th>Anak</th>
-        <th>Pasangan</th>
-        <th>Info</th>
-      </thead>
-      <tbody id="table-body">
-        <!-- Rows will be dynamically inserted here -->
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-12" id="table-anak">
+        <table class="table table-bordered">
+          <thead style="text-align: center">
+            <th>No</th>
+            <th>Anak</th>
+            <th>Pasangan</th>
+            <th>Info</th>
+          </thead>
+          <tbody id="table-body">
+            <!-- Rows will be dynamically inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12" id="table-judul-anak" style="display: none;">
+        <table class="table table-bordered">
+          <thead style="text-align: center;">
+            <th>Pasangan Anak</th>
+            <th>Kembali</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span id="value-judul-anak"></span>
+                &
+                <span id="value-judul-pasangan-anak"></span>
+              </td>
+              <td style="text-align: center;">
+                <button class="btn btn-danger btn-sm" onclick="backtableanak()"><i
+                    class="fa-solid fa-circle-up"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12" id="table-putu" style="display: none;">
+        <table class="table table-bordered">
+          <thead style="text-align: center;">
+            <th>No</th>
+            <th>Nama</th>
+            <th>Pasangan</th>
+            <th>Info</th>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="modal-anak" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -159,6 +203,12 @@
       { id: 8, fullname: 'M Bashoni', nickname: 'Bas', father: 'H. Nur', mother: 'Genuk', seq: 8, gender: 'Laki-laki', born: '1949', dead: '-', partner: 'Umi Maisaroh', partnerborn: '1959', partnerdead: '-', child: '6' }
     ];
 
+    const putuData = [
+      { id: 1, rootanak: 2, fullname: 'Siti Sapurah', nickname: 'Sapur', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 1, gender: 'Perempuan', born: '1951', dead: '-', partner: 'Muh Yadi', partnerborn: '1946', partnerdead: '-', child: '3' },
+      { id: 2, rootanak: 2, fullname: 'Samuji', nickname: 'Samuji', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 2, gender: 'Laki-laki', born: '1954', dead: '-', partner: 'Umi Aiman', partnerborn: '1960', partnerdead: '-', child: '3' },
+      { id: 3, rootanak: 2, fullname: 'Samuji', nickname: 'Samuji', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 2, gender: 'Laki-laki', born: '1954', dead: '-', partner: 'Umi Aiman', partnerborn: '1960', partnerdead: '-', child: '3' },
+    ];
+
     $(document).ready(function () {
 
       // Function to populate table
@@ -190,7 +240,7 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <button class="btn btn-sm btn-success">
+                <button class="btn btn-sm btn-success" onclick="opentableputu(${anak.id})">
                   <i class="fa-solid fa-child"></i>
                 </button>
               </div>
@@ -215,7 +265,6 @@
       // Find the data from anakData array based on the id
       const anak = anakData.find(a => a.id === id);
 
-      console.log(anak.fullname); // Example usage (logging the data)
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -234,6 +283,28 @@
       $("#modal-anak").modal("show");
     }
 
+    // function to open table putu
+    function opentableputu(id) {
+      // Find the data from anakData array based on the id
+      const anak = anakData.find(a => a.id === id);
+
+      $('#value-judul-anak').html(anak.fullname);
+      $('#value-judul-pasangan-anak').html(anak.partner);
+
+      $('#table-anak').hide();
+      $('#table-judul-anak').show();
+      $('#table-putu').show();
+
+
+
+    }
+
+    // function untuk kembali ke table anak
+    function backtableanak() {
+      $('#table-anak').show();
+      $('#table-judul-anak').hide();
+      $('#table-putu').hide();
+    }
   </script>
 </body>
 
