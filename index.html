@@ -85,7 +85,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modal-anak" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-detail-info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog ">
         <div class="modal-content">
           <div class="modal-header">
@@ -308,8 +308,32 @@
       $('#partnerdead').html(anak.partnerdead);
       $('#child').html(anak.child);
 
-      $("#modal-anak").modal("show");
+      $("#modal-detail-info").modal("show");
     }
+
+    // function to open modal
+    function openmodalputu(id) {
+      // Find the data from anakData array based on the id
+      const anak = putuData.find(a => a.id === id);
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(anak.father);
+      $('#mother').html(anak.mother);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
+    }
+
 
     // function to open table putu
     function opentableputu(id, anakname, partner) {
@@ -367,6 +391,15 @@
       $('#table-anak').hide();
       $('#table-judul-anak').show();
       $('#table-putu').show();
+    }
+
+    function opentablebuyut(id, putuname, partner) {
+      Swal.fire({
+        title: 'Belum Tersedia!',
+        text: 'Data belum ada, mohon tunggu',
+        icon: 'info',
+        confirmButtonText: 'Okay'
+      });
     }
 
     // function untuk kembali ke table anak
