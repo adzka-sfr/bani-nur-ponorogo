@@ -123,7 +123,7 @@
 
     // 6
     // data udhegudhed
-    const udhegudhedData = [
+    const udhegudhegData = [
       { id: 0, root: 0, fullname: '-', nickname: '-', seq: 0, gender: '-', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
 
