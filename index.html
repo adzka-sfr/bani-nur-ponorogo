@@ -456,6 +456,13 @@
           statuspartner = ' - Alm';
         }
 
+        // cek apakah ada pasangan
+        if (anak.partner == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = '<br>(' + agepartner + 'th' + statuspartner + ')';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -466,7 +473,7 @@
         $row.append(`<td>${anak.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append nickname
-        $row.append(`<td>${anak.partner}<br>(${agepartner}th${statuspartner})</td>`);
+        $row.append(`<td>${anak.partner}${statuspartner}</td>`);
 
         if (descendants == 1) {
           // Append action buttons
@@ -531,6 +538,31 @@
           descendants = 0;
         }
 
+        // hitung umur anak
+        var statusanak;
+        const ageanak = calculateAge(putu.born, putu.dead);
+        if (putu.dead == '-') {
+          statusanak = '';
+        } else {
+          statusanak = ' - Alm';
+        }
+
+        // hitung umur pasangan
+        var statuspartner;
+        const agepartner = calculateAge(putu.partnerborn, putu.partnerdead);
+        if (putu.partnerdead == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = ' - Alm';
+        }
+
+        // cek apakah ada pasangan
+        if (putu.partner == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = '<br>(' + agepartner + 'th' + statuspartner + ')';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -538,10 +570,10 @@
         $row.append(`<td style="text-align: center">${putu.seq}</td>`);
 
         // Append fullname
-        $row.append(`<td>${putu.fullname}</td>`);
+        $row.append(`<td>${putu.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append partner's name
-        $row.append(`<td>${putu.partner}</td>`);
+        $row.append(`<td>${putu.partner}${statuspartner}</td>`);
 
         if (descendants == 1) {
           // Append action buttons
@@ -614,6 +646,32 @@
         } else {
           descendants = 0;
         }
+
+        // hitung umur anak
+        var statusanak;
+        const ageanak = calculateAge(buyut.born, buyut.dead);
+        if (buyut.dead == '-') {
+          statusanak = '';
+        } else {
+          statusanak = ' - Alm';
+        }
+
+        // hitung umur pasangan
+        var statuspartner;
+        const agepartner = calculateAge(buyut.partnerborn, buyut.partnerdead);
+        if (buyut.partnerdead == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = ' - Alm';
+        }
+
+        // cek apakah ada pasangan
+        if (buyut.partner == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = '<br>(' + agepartner + 'th' + statuspartner + ')';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -621,10 +679,10 @@
         $row.append(`<td style="text-align: center">${buyut.seq}</td>`);
 
         // Append fullname
-        $row.append(`<td>${buyut.fullname}</td>`);
+        $row.append(`<td>${buyut.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append partner's name
-        $row.append(`<td>${buyut.partner}</td>`);
+        $row.append(`<td>${buyut.partner}${statuspartner}</td>`);
 
         if (descendants == 1) {
           // Append action buttons
@@ -698,6 +756,32 @@
         } else {
           descendants = 0;
         }
+
+        // hitung umur anak
+        var statusanak;
+        const ageanak = calculateAge(canggah.born, canggah.dead);
+        if (canggah.dead == '-') {
+          statusanak = '';
+        } else {
+          statusanak = ' - Alm';
+        }
+
+        // hitung umur pasangan
+        var statuspartner;
+        const agepartner = calculateAge(canggah.partnerborn, canggah.partnerdead);
+        if (canggah.partnerdead == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = ' - Alm';
+        }
+
+        // cek apakah ada pasangan
+        if (canggah.partner == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = '<br>(' + agepartner + 'th' + statuspartner + ')';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -705,10 +789,10 @@
         $row.append(`<td style="text-align: center">${canggah.seq}</td>`);
 
         // Append fullname
-        $row.append(`<td>${canggah.fullname}</td>`);
+        $row.append(`<td>${canggah.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append partner's name
-        $row.append(`<td>${canggah.partner}</td>`);
+        $row.append(`<td>${canggah.partner}${statuspartner}</td>`);
 
         if (descendants == 1) {
           // Append action buttons
@@ -786,6 +870,32 @@
         } else {
           descendants = 0;
         }
+
+        // hitung umur anak
+        var statusanak;
+        const ageanak = calculateAge(wareng.born, wareng.dead);
+        if (wareng.dead == '-') {
+          statusanak = '';
+        } else {
+          statusanak = ' - Alm';
+        }
+
+        // hitung umur pasangan
+        var statuspartner;
+        const agepartner = calculateAge(wareng.partnerborn, wareng.partnerdead);
+        if (wareng.partnerdead == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = ' - Alm';
+        }
+
+        // cek apakah ada pasangan
+        if (wareng.partner == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = '<br>(' + agepartner + 'th' + statuspartner + ')';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -793,10 +903,10 @@
         $row.append(`<td style="text-align: center">${wareng.seq}</td>`);
 
         // Append fullname
-        $row.append(`<td>${wareng.fullname}</td>`);
+        $row.append(`<td>${wareng.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append partner's name
-        $row.append(`<td>${wareng.partner}</td>`);
+        $row.append(`<td>${wareng.partner}${statuspartner}</td>`);
 
         if (descendants == 1) {
           // Append action buttons
@@ -876,6 +986,32 @@
         } else {
           descendants = 0;
         }
+
+        // hitung umur anak
+        var statusanak;
+        const ageanak = calculateAge(udhegudheg.born, udhegudheg.dead);
+        if (udhegudheg.dead == '-') {
+          statusanak = '';
+        } else {
+          statusanak = ' - Alm';
+        }
+
+        // hitung umur pasangan
+        var statuspartner;
+        const agepartner = calculateAge(udhegudheg.partnerborn, udhegudheg.partnerdead);
+        if (udhegudheg.partnerdead == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = ' - Alm';
+        }
+
+        // cek apakah ada pasangan
+        if (udhegudheg.partner == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = '<br>(' + agepartner + 'th' + statuspartner + ')';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -883,10 +1019,10 @@
         $row.append(`<td style="text-align: center">${udhegudheg.seq}</td>`);
 
         // Append fullname
-        $row.append(`<td>${udhegudheg.fullname}</td>`);
+        $row.append(`<td>${udhegudheg.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append partner's name
-        $row.append(`<td>${udhegudheg.partner}</td>`);
+        $row.append(`<td>${udhegudheg.partner}${statuspartner}</td>`);
 
         if (descendants == 1) {
           // Append action buttons
@@ -968,6 +1104,32 @@
         } else {
           descendants = 0;
         }
+
+        // hitung umur anak
+        var statusanak;
+        const ageanak = calculateAge(gantungsiwur.born, gantungsiwur.dead);
+        if (gantungsiwur.dead == '-') {
+          statusanak = '';
+        } else {
+          statusanak = ' - Alm';
+        }
+
+        // hitung umur pasangan
+        var statuspartner;
+        const agepartner = calculateAge(gantungsiwur.partnerborn, gantungsiwur.partnerdead);
+        if (gantungsiwur.partnerdead == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = ' - Alm';
+        }
+
+        // cek apakah ada pasangan
+        if (gantungsiwur.partner == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = '<br>(' + agepartner + 'th' + statuspartner + ')';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -975,10 +1137,10 @@
         $row.append(`<td style="text-align: center">${gantungsiwur.seq}</td>`);
 
         // Append fullname
-        $row.append(`<td>${gantungsiwur.fullname}</td>`);
+        $row.append(`<td>${gantungsiwur.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append partner's name
-        $row.append(`<td>${gantungsiwur.partner}</td>`);
+        $row.append(`<td>${gantungsiwur.partner}${statuspartner}</td>`);
 
         if (descendants == 1) {
           // Append action buttons
