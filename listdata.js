@@ -82,7 +82,7 @@
       { id: 31, root: 15, fullname: 'Suud Ilasari Rahmawati', nickname: 'Ela', seq: 3, gender: 'Perempuan', born: '1999', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 32, root: 16, fullname: 'M. Walad Alfadlilatul `Azza', nickname: 'Fadel', seq: 1, gender: 'Laki-laki', born: '1996', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 33, root: 16, fullname: 'Anzilatur Rohmah Attamyizi', nickname: 'Dila', seq: 2, gender: 'Perempuan', born: '2002', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 34, root: 17, fullname: 'M. Dzawil Albab Al Haq', nickname: 'Albab', seq: 1, gender: 'Laki-laki', born: '2001', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 34, root: 17, fullname: 'M. Dzawil Albab Al Haq', nickname: 'Albab', seq: 1, gender: 'Laki-laki', born: '2001', dead: '2022', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 35, root: 17, fullname: 'M. Hisan Yahya Al Haq', nickname: 'Hisan', seq: 2, gender: 'Laki-laki', born: '2006', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 36, root: 17, fullname: 'Nilna Mazaya Al Haq', nickname: 'Nilna', seq: 3, gender: 'Perempuan', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 37, root: 18, fullname: 'Luluk Lailatul Izza', nickname: 'Luluk', seq: 1, gender: 'Perempuan', born: '1993', dead: '-', partner: 'Roisul Ma`arif', partnerborn: '1993', partnerdead: '-', child: '2' },
