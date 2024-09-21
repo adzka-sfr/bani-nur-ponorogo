@@ -132,3 +132,9 @@
     const gantungsiwurData = [
       { id: 0, root: 0, fullname: '-', nickname: '-', seq: 0, gender: '-', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
+
+    // 8
+    // data gropaksenthe
+    const gropaksentheData = [
+      { id: 0, root: 0, fullname: '-', nickname: '-', seq: 0, gender: '-', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+    ];
