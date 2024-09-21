@@ -647,7 +647,7 @@
       $('#table-buyut').show();
     }
 
-    // function to open table buyut
+    // function to open table canggah
     function opentablecanggah(id, buyutname, partner) {
       const $tableBody = $('#data-table-canggah'); // Select table body
 
@@ -728,10 +728,280 @@
       $('#table-anak').hide();
       $('#table-putu').hide();
       $('#table-buyut').hide();
+      $('#table-canggah').show();
+
       $('#table-judul-anak').show();
       $('#table-judul-putu').show();
       $('#table-judul-buyut').show();
-      $('#table-canggah').show();
+    }
+
+    // function to open table wareng
+    function opentablewareng(id, canggahname, partner) {
+      const $tableBody = $('#data-table-wareng'); // Select table body
+
+      // Clear the table body before appending new data
+      $tableBody.empty();
+
+      // Find all data from buyutData array based on the root
+      const warengList = warengData.filter(a => a.root === id);
+
+      $.each(warengList, function (index, wareng) {
+        var descendants = 0;
+        // Check if anakData has corresponding putu in putuData
+        const hasDescendants = udhegudhegData.some(a => a.root === wareng.id);
+        if (hasDescendants) {
+          descendants = 1;
+        } else {
+          descendants = 0;
+        }
+        // Create table row using jQuery
+        const $row = $('<tr></tr>');
+
+        // Append sequence number (seq)
+        $row.append(`<td style="text-align: center">${wareng.seq}</td>`);
+
+        // Append fullname
+        $row.append(`<td>${wareng.fullname}</td>`);
+
+        // Append partner's name
+        $row.append(`<td>${wareng.partner}</td>`);
+
+        if (descendants == 1) {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalwareng(${wareng.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <button class="btn btn-sm btn-success" onclick="opentableudhegudheg(${wareng.id},'${wareng.fullname}','${wareng.partner}')">
+                                    <i class="fa-solid fa-child"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        } else {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalwareng(${wareng.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        }
+
+
+        // Append the row to the table body
+        $tableBody.append($row);
+      });
+
+      // Update the title and other elements
+      $('#value-judul-canggah').html(canggahname);
+      $('#value-judul-pasangan-canggah').html(partner);
+
+      // Hide and show relevant sections
+      $('#table-anak').hide();
+      $('#table-putu').hide();
+      $('#table-buyut').hide();
+      $('#table-canggah').hide();
+      $('#table-wareng').show();
+
+      $('#table-judul-anak').show();
+      $('#table-judul-putu').show();
+      $('#table-judul-buyut').show();
+      $('#table-judul-canggah').show();
+    }
+
+    // function to open table udhegudheg
+    function opentableudhegudheg(id, warengname, partner) {
+      const $tableBody = $('#data-table-udhegudheg'); // Select table body
+
+      // Clear the table body before appending new data
+      $tableBody.empty();
+
+      // Find all data from buyutData array based on the root
+      const udhegudhegList = udhegudhegData.filter(a => a.root === id);
+
+      $.each(udhegudhegList, function (index, udhegudheg) {
+        var descendants = 0;
+        // Check if anakData has corresponding putu in putuData
+        const hasDescendants = gantungsiwurData.some(a => a.root === udhegudheg.id);
+        if (hasDescendants) {
+          descendants = 1;
+        } else {
+          descendants = 0;
+        }
+        // Create table row using jQuery
+        const $row = $('<tr></tr>');
+
+        // Append sequence number (seq)
+        $row.append(`<td style="text-align: center">${udhegudheg.seq}</td>`);
+
+        // Append fullname
+        $row.append(`<td>${udhegudheg.fullname}</td>`);
+
+        // Append partner's name
+        $row.append(`<td>${udhegudheg.partner}</td>`);
+
+        if (descendants == 1) {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodaludhegudheg(${udhegudheg.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <button class="btn btn-sm btn-success" onclick="opentablegantungsiwur(${udhegudheg.id},'${udhegudheg.fullname}','${udhegudheg.partner}')">
+                                    <i class="fa-solid fa-child"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        } else {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodaludhegudheg(${udhegudheg.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        }
+
+
+        // Append the row to the table body
+        $tableBody.append($row);
+      });
+
+      // Update the title and other elements
+      $('#value-judul-wareng').html(warengname);
+      $('#value-judul-pasangan-wareng').html(partner);
+
+      // Hide and show relevant sections
+      $('#table-anak').hide();
+      $('#table-putu').hide();
+      $('#table-buyut').hide();
+      $('#table-canggah').hide();
+      $('#table-wareng').hide();
+      $('#table-udhegudheg').show();
+
+      $('#table-judul-anak').show();
+      $('#table-judul-putu').show();
+      $('#table-judul-buyut').show();
+      $('#table-judul-canggah').show();
+      $('#table-judul-wareng').show();
+    }
+
+    // function to open table gantungsiwur
+    function opentablegantungsiwur(id, udhegudhegname, partner) {
+      const $tableBody = $('#data-table-gantungsiwur'); // Select table body
+
+      // Clear the table body before appending new data
+      $tableBody.empty();
+
+      // Find all data from buyutData array based on the root
+      const gantungsiwurList = gantungsiwurData.filter(a => a.root === id);
+
+      $.each(gantungsiwurList, function (index, gantungsiwur) {
+        var descendants = 0;
+        // Check if anakData has corresponding putu in putuData
+        const hasDescendants = gropaksentheData.some(a => a.root === gantungsiwur.id);
+        if (hasDescendants) {
+          descendants = 1;
+        } else {
+          descendants = 0;
+        }
+        // Create table row using jQuery
+        const $row = $('<tr></tr>');
+
+        // Append sequence number (seq)
+        $row.append(`<td style="text-align: center">${gantungsiwur.seq}</td>`);
+
+        // Append fullname
+        $row.append(`<td>${gantungsiwur.fullname}</td>`);
+
+        // Append partner's name
+        $row.append(`<td>${gantungsiwur.partner}</td>`);
+
+        if (descendants == 1) {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalgantungsiwur(${gantungsiwur.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        } else {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalgantungsiwur(${gantungsiwur.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        }
+
+
+        // Append the row to the table body
+        $tableBody.append($row);
+      });
+
+      // Update the title and other elements
+      $('#value-judul-udhegudheg').html(udhegudhegname);
+      $('#value-judul-pasangan-udhegudheg').html(partner);
+
+      // Hide and show relevant sections
+      $('#table-anak').hide();
+      $('#table-putu').hide();
+      $('#table-buyut').hide();
+      $('#table-canggah').hide();
+      $('#table-wareng').hide();
+      $('#table-udhegudheg').hide();
+      $('#table-gantungsiwur').show();
+
+      $('#table-judul-anak').show();
+      $('#table-judul-putu').show();
+      $('#table-judul-buyut').show();
+      $('#table-judul-canggah').show();
+      $('#table-judul-wareng').show();
+      $('#table-judul-udhegudheg').show();
     }
 
     // function to open modal
@@ -868,16 +1138,134 @@
       $("#modal-detail-info").modal("show");
     }
 
+    // function to open modal
+    function openmodalwareng(id) {
+      // Find the data from anakData array based on the id
+      const anak = warengData.find(a => a.id === id);
+
+      // cari mama dan papa nya
+      var rootorangtua = anak.root;
+      var mama, papa;
+      const orangtua = canggahData.find(b => b.id === rootorangtua);
+
+      // cek untuk menentukan mana papa dan mama nya
+      if (orangtua.gender == 'Perempuan') {
+        mama = orangtua.fullname;
+        papa = orangtua.partner;
+      } else {
+        mama = orangtua.partner;
+        papa = orangtua.fullname;
+      }
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(papa);
+      $('#mother').html(mama);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
+    }
+
+    // function to open modal
+    function openmodaludhegudheg(id) {
+      // Find the data from anakData array based on the id
+      const anak = udhegudhegData.find(a => a.id === id);
+
+      // cari mama dan papa nya
+      var rootorangtua = anak.root;
+      var mama, papa;
+      const orangtua = warengData.find(b => b.id === rootorangtua);
+
+      // cek untuk menentukan mana papa dan mama nya
+      if (orangtua.gender == 'Perempuan') {
+        mama = orangtua.fullname;
+        papa = orangtua.partner;
+      } else {
+        mama = orangtua.partner;
+        papa = orangtua.fullname;
+      }
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(papa);
+      $('#mother').html(mama);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
+    }
+
+    // function to open modal
+    function openmodalgantungsiwur(id) {
+      // Find the data from anakData array based on the id
+      const anak = gantungsiwurData.find(a => a.id === id);
+
+      // cari mama dan papa nya
+      var rootorangtua = anak.root;
+      var mama, papa;
+      const orangtua = udhegudhegData.find(b => b.id === rootorangtua);
+
+      // cek untuk menentukan mana papa dan mama nya
+      if (orangtua.gender == 'Perempuan') {
+        mama = orangtua.fullname;
+        papa = orangtua.partner;
+      } else {
+        mama = orangtua.partner;
+        papa = orangtua.fullname;
+      }
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(papa);
+      $('#mother').html(mama);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
+    }
+
     // function untuk kembali ke table anak
     function backtableanak() {
       $('#table-anak').show();
       $('#table-putu').hide();
       $('#table-buyut').hide();
       $('#table-canggah').hide();
+      $('#table-wareng').hide();
+      $('#table-udhegudheg').hide();
+      $('#table-gantungsiwur').hide();
 
       $('#table-judul-anak').hide();
       $('#table-judul-putu').hide();
       $('#table-judul-buyut').hide();
+      $('#table-judul-canggah').hide();
+      $('#table-judul-wareng').hide();
+      $('#table-judul-udhegudheg').hide();
+      $('#table-judul-gantungsiwur').hide();
     }
 
     // function untuk kembali ke table anak
@@ -885,18 +1273,73 @@
       $('#table-putu').show();
       $('#table-buyut').hide();
       $('#table-canggah').hide();
+      $('#table-wareng').hide();
+      $('#table-udhegudheg').hide();
+      $('#table-gantungsiwur').hide();
 
       $('#table-judul-putu').hide();
       $('#table-judul-buyut').hide();
+      $('#table-judul-canggah').hide();
+      $('#table-judul-wareng').hide();
+      $('#table-judul-udhegudheg').hide();
+      $('#table-judul-gantungsiwur').hide();
     }
 
     // function untuk kembali ke table anak
     function backtablebuyut() {
       $('#table-buyut').show();
       $('#table-canggah').hide();
+      $('#table-wareng').hide();
+      $('#table-udhegudheg').hide();
+      $('#table-gantungsiwur').hide();
 
       $('#table-judul-buyut').hide();
+      $('#table-judul-canggah').hide();
+      $('#table-judul-wareng').hide();
+      $('#table-judul-udhegudheg').hide();
+      $('#table-judul-gantungsiwur').hide();
     }
+
+    // function untuk kembali ke table anak
+    function backtablecanggah() {
+      $('#table-canggah').show();
+      $('#table-wareng').hide();
+      $('#table-udhegudheg').hide();
+      $('#table-gantungsiwur').hide();
+
+      $('#table-judul-canggah').hide();
+      $('#table-judul-wareng').hide();
+      $('#table-judul-udhegudheg').hide();
+      $('#table-judul-gantungsiwur').hide();
+    }
+
+    // function untuk kembali ke table anak
+    function backtablewareng() {
+      $('#table-wareng').show();
+      $('#table-udhegudheg').hide();
+      $('#table-gantungsiwur').hide();
+
+      $('#table-judul-wareng').hide();
+      $('#table-judul-udhegudheg').hide();
+      $('#table-judul-gantungsiwur').hide();
+    }
+
+    // function untuk kembali ke table anak
+    function backtableudhegudheg() {
+      $('#table-udhegudheg').show();
+      $('#table-gantungsiwur').hide();
+
+      $('#table-judul-udhegudheg').hide();
+      $('#table-judul-gantungsiwur').hide();
+    }
+
+    // function untuk kembali ke table anak
+    function backtablegantungsiwur() {
+      $('#table-gantungsiwur').show();
+
+      $('#table-judul-gantungsiwur').hide();
+    }
+
   </script>
 </body>
 
