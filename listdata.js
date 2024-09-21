@@ -1,4 +1,5 @@
-// data anak
+    // 1
+    // data anak
     const anakData = [
       { id: 1, root: 0, fullname: 'Moh. Romli', nickname: 'Romli', father: 'H. Nur', mother: 'Genuk', seq: 1, gender: 'Laki-laki', born: '1928', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 2, root: 0, fullname: 'Siti Aminah', nickname: 'Ti', father: 'H. Nur', mother: 'Genuk', seq: 2, gender: 'Perempuan', born: '1931', dead: '-', partner: 'Moh. Kusnun', partnerborn: '1924', partnerdead: '-', child: '8' },
@@ -10,6 +11,7 @@
       { id: 8, root: 0, fullname: 'M. Bashoni', nickname: 'Bas', father: 'H. Nur', mother: 'Genuk', seq: 8, gender: 'Laki-laki', born: '1949', dead: '-', partner: 'Umi Maisaroh', partnerborn: '1959', partnerdead: '-', child: '6' }
     ];
 
+    // 2
     // data putu
     const putuData = [
       { id: 1, root: 2, fullname: 'Siti Sapurah', nickname: 'Sapur', seq: 1, gender: 'Perempuan', born: '1951', dead: '-', partner: 'Muh Yadi', partnerborn: '1946', partnerdead: '-', child: '3' },
@@ -44,6 +46,7 @@
       { id: 30, root: 8, fullname: 'David Taufiq Irijal', nickname: '-', seq: 6, gender: 'Laki-laki', born: '1989', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
 
+    // 3
     // data buyut
     const buyutData = [
       { id: 1, root: 1, fullname: 'Samrotul Fikriyah', nickname: '-', seq: 1, gender: 'Perempuan', born: '1975', dead: '-', partner: 'Anas Mubarok', partnerborn: '1975', partnerdead: '-', child: '2' },
@@ -99,6 +102,7 @@
       { id: 51, root: 27, fullname: 'M. Fahrul Ilmi Rohmatullah', nickname: '-', seq: 1, gender: 'Laki-laki', born: '2008', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
 
+    // 4
     // data canggah
     const canggahData = [
       { id: 1, root: 1, fullname: 'Haikun Ni`mah', nickname: '-', seq: 1, gender: 'Perempuan', born: '2000', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
@@ -111,7 +115,20 @@
       { id: 8, root: 38, fullname: 'M. Isa Hazairin Rahman', nickname: 'Isa', seq: 1, gender: 'Laki-laki', born: '2022', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
 
+    // 5
     // data wareng
     const warengData = [
       { id: 0, root: 0, fullname: '-', nickname: '-', seq: 0, gender: '-', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-    ]
+    ];
+
+    // 6
+    // data udhegudhed
+    const udhegudhedData = [
+      { id: 0, root: 0, fullname: '-', nickname: '-', seq: 0, gender: '-', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+    ];
+
+    // 7
+    // data gantungsiwur
+    const gantungsiwurData = [
+      { id: 0, root: 0, fullname: '-', nickname: '-', seq: 0, gender: '-', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+    ];
