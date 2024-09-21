@@ -285,6 +285,15 @@
       const $tableBody = $('#data-table-anak'); // Select table body
 
       $.each(anakData, function (index, anak) {
+        var descendants = 0;
+        // Check if anakData has corresponding putu in putuData
+        const hasDescendants = putuData.some(a => a.root === anak.id);
+        if (hasDescendants) {
+          descendants = 1;
+        } else {
+          descendants = 0;
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -297,26 +306,42 @@
         // Append nickname
         $row.append(`<td>${anak.partner}</td>`);
 
-        // Append action buttons
-        const $actionButtons = `
-        <td style="text-align: center">
-          <div class="row">
-              <div class="col-12 mb-3">
-                <button class="btn btn-sm btn-primary" onclick="openmodalanak(${anak.id})">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <button class="btn btn-sm btn-success" onclick="opentableputu(${anak.id},'${anak.fullname}','${anak.partner}')">
-                  <i class="fa-solid fa-child"></i>
-                </button>
-              </div>
-            </div>
-        </td>
-      `;
-        $row.append($actionButtons);
+        if (descendants == 1) {
+          // Append action buttons
+          const $actionButtons = `
+                              <td style="text-align: center">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                      <button class="btn btn-sm btn-primary" onclick="openmodalanak(${anak.id})">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <button class="btn btn-sm btn-success" onclick="opentableputu(${anak.id},'${anak.fullname}','${anak.partner}')">
+                                        <i class="fa-solid fa-child"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                              </td>
+                            `;
+          $row.append($actionButtons);
+        } else {
+          // Append action buttons
+          const $actionButtons = `
+                              <td style="text-align: center">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                      <button class="btn btn-sm btn-primary" onclick="openmodalanak(${anak.id})">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                              </td>
+                            `;
+          $row.append($actionButtons);
+        }
 
         // Append the row to the table body
         $tableBody.append($row);
@@ -335,6 +360,15 @@
       const putuList = putuData.filter(a => a.root === id);
 
       $.each(putuList, function (index, putu) {
+        var descendants = 0;
+        // Check if anakData has corresponding putu in putuData
+        const hasDescendants = buyutData.some(a => a.root === putu.id);
+        if (hasDescendants) {
+          descendants = 1;
+        } else {
+          descendants = 0;
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -347,26 +381,43 @@
         // Append partner's name
         $row.append(`<td>${putu.partner}</td>`);
 
-        // Append action buttons
-        const $actionButtons = `
-      <td style="text-align: center">
-        <div class="row">
-          <div class="col-12 mb-3">
-            <button class="btn btn-sm btn-primary" onclick="openmodalputu(${putu.id})">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <button class="btn btn-sm btn-success" onclick="opentablebuyut(${putu.id},'${putu.fullname}','${putu.partner}')">
-              <i class="fa-solid fa-child"></i>
-            </button>
-          </div>
-        </div>
-      </td>
-    `;
-        $row.append($actionButtons);
+        if (descendants == 1) {
+          // Append action buttons
+          const $actionButtons = `
+                              <td style="text-align: center">
+                                <div class="row">
+                                  <div class="col-12 mb-3">
+                                    <button class="btn btn-sm btn-primary" onclick="openmodalputu(${putu.id})">
+                                      <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-12">
+                                    <button class="btn btn-sm btn-success" onclick="opentablebuyut(${putu.id},'${putu.fullname}','${putu.partner}')">
+                                      <i class="fa-solid fa-child"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </td>
+                            `;
+          $row.append($actionButtons);
+        } else {
+          // Append action buttons
+          const $actionButtons = `
+                              <td style="text-align: center">
+                                <div class="row">
+                                  <div class="col-12 mb-3">
+                                    <button class="btn btn-sm btn-primary" onclick="openmodalputu(${putu.id})">
+                                      <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </td>
+                            `;
+          $row.append($actionButtons);
+        }
+
 
         // Append the row to the table body
         $tableBody.append($row);
@@ -393,6 +444,14 @@
       const buyutList = buyutData.filter(a => a.root === id);
 
       $.each(buyutList, function (index, buyut) {
+        var descendants = 0;
+        // Check if anakData has corresponding putu in putuData
+        const hasDescendants = canggahData.some(a => a.root === buyut.id);
+        if (hasDescendants) {
+          descendants = 1;
+        } else {
+          descendants = 0;
+        }
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -405,26 +464,42 @@
         // Append partner's name
         $row.append(`<td>${buyut.partner}</td>`);
 
-        // Append action buttons
-        const $actionButtons = `
-      <td style="text-align: center">
-        <div class="row">
-          <div class="col-12 mb-3">
-            <button class="btn btn-sm btn-primary" onclick="openmodalbuyut(${buyut.id})">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <button class="btn btn-sm btn-success" onclick="opentablecanggah(${buyut.id},'${buyut.fullname}','${buyut.partner}')">
-              <i class="fa-solid fa-child"></i>
-            </button>
-          </div>
-        </div>
-      </td>
-    `;
-        $row.append($actionButtons);
+        if (descendants == 1) {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalbuyut(${buyut.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <button class="btn btn-sm btn-success" onclick="opentablecanggah(${buyut.id},'${buyut.fullname}','${buyut.partner}')">
+                                    <i class="fa-solid fa-child"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        } else {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalbuyut(${buyut.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        }
 
         // Append the row to the table body
         $tableBody.append($row);
@@ -453,6 +528,14 @@
       const canggahList = canggahData.filter(a => a.root === id);
 
       $.each(canggahList, function (index, canggah) {
+        var descendants = 0;
+        // Check if anakData has corresponding putu in putuData
+        const hasDescendants = warengData.some(a => a.root === canggah.id);
+        if (hasDescendants) {
+          descendants = 1;
+        } else {
+          descendants = 0;
+        }
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -465,19 +548,43 @@
         // Append partner's name
         $row.append(`<td>${canggah.partner}</td>`);
 
-        // Append action buttons
-        const $actionButtons = `
-      <td style="text-align: center">
-        <div class="row">
-          <div class="col-12 mb-3">
-            <button class="btn btn-sm btn-primary" onclick="openmodalcanggah(${canggah.id})">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </div>
-        </div>
-      </td>
-    `;
-        $row.append($actionButtons);
+        if (descendants == 1) {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalcanggah(${canggah.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <button class="btn btn-sm btn-success" onclick="opentablewareng(${canggah.id},'${canggah.fullname}','${canggah.partner}')">
+                                    <i class="fa-solid fa-child"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        } else {
+          // Append action buttons
+          const $actionButtons = `
+                            <td style="text-align: center">
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <button class="btn btn-sm btn-primary" onclick="openmodalcanggah(${canggah.id})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          `;
+          $row.append($actionButtons);
+        }
+
 
         // Append the row to the table body
         $tableBody.append($row);

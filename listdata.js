@@ -110,3 +110,8 @@
       { id: 7, root: 37, fullname: 'M. Aqil Irsyad Ma`arif', nickname: 'Aqil', seq: 2, gender: 'Laki-laki', born: '2021', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 8, root: 38, fullname: 'M. Isa Hazairin Rahman', nickname: 'Isa', seq: 1, gender: 'Laki-laki', born: '2022', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
+
+    // data wareng
+    const warengData = [
+      { id: 0, root: 0, fullname: '-', nickname: '-', seq: 0, gender: '-', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+    ]
