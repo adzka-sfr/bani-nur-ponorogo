@@ -49,7 +49,7 @@
         <table class="table table-bordered">
           <thead style="text-align: center;">
             <th>Pasangan Anak</th>
-            <th>Kembali</th>
+            <th style="width: 1%;">Kembali</th>
           </thead>
           <tbody>
             <tr>
@@ -69,6 +69,54 @@
     </div>
 
     <div class="row">
+      <div class="col-12" id="table-judul-putu" style="display: none;">
+        <table class="table table-bordered">
+          <thead style="text-align: center;">
+            <th>Pasangan Putu</th>
+            <th style="width: 1%;">Kembali</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span id="value-judul-putu"></span>
+                &
+                <span id="value-judul-pasangan-putu"></span>
+              </td>
+              <td style="text-align: center;">
+                <button class="btn btn-danger btn-sm" onclick="backtableputu()"><i
+                    class="fa-solid fa-circle-up"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12" id="table-judul-buyut" style="display: none;">
+        <table class="table table-bordered">
+          <thead style="text-align: center;">
+            <th>Pasangan Buyut</th>
+            <th style="width: 1%;">Kembali</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span id="value-judul-buyut"></span>
+                &
+                <span id="value-judul-pasangan-buyut"></span>
+              </td>
+              <td style="text-align: center;">
+                <button class="btn btn-danger btn-sm" onclick="backtablebuyut()"><i
+                    class="fa-solid fa-circle-up"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-12" id="table-putu" style="display: none;">
         <table class="table table-bordered">
           <thead style="text-align: center;">
@@ -78,6 +126,38 @@
             <th>Info</th>
           </thead>
           <tbody id="data-table-putu">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12" id="table-buyut" style="display: none;">
+        <table class="table table-bordered">
+          <thead style="text-align: center;">
+            <th>No</th>
+            <th>Nama</th>
+            <th>Pasangan</th>
+            <th>Info</th>
+          </thead>
+          <tbody id="data-table-buyut">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12" id="table-canggah" style="display: none;">
+        <table class="table table-bordered">
+          <thead style="text-align: center;">
+            <th>No</th>
+            <th>Nama</th>
+            <th>Pasangan</th>
+            <th>Info</th>
+          </thead>
+          <tbody id="data-table-canggah">
 
           </tbody>
         </table>
@@ -191,72 +271,34 @@
 
   <!-- FontAwesome (already loaded via the CSS link) -->
 
+  <!-- Include the dataAnak.js file -->
+  <script src="listdata.js"></script>
+
   <script>
-    const anakData = [
-      { id: 1, fullname: 'Moh. Romli', nickname: 'Romli', father: 'H. Nur', mother: 'Genuk', seq: 1, gender: 'Laki-laki', born: '1928', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 2, fullname: 'Siti Aminah', nickname: 'Ti', father: 'H. Nur', mother: 'Genuk', seq: 2, gender: 'Perempuan', born: '1931', dead: '-', partner: 'Moh. Kusnun', partnerborn: '1924', partnerdead: '-', child: '8' },
-      { id: 3, fullname: 'Kholiyah', nickname: 'Yah', father: 'H. Nur', mother: 'Genuk', seq: 3, gender: 'Perempuan', born: '1934', dead: '-', partner: 'Abd. Mu`thi', partnerborn: '1925', partnerdead: '-', child: '3' },
-      { id: 4, fullname: 'Marsinah', nickname: 'Mar', father: 'H. Nur', mother: 'Genuk', seq: 4, gender: 'Perempuan', born: '1937', dead: '-', partner: 'Abd. Shomad', partnerborn: '1927', partnerdead: '-', child: '8' },
-      { id: 5, fullname: 'Marzuqi', nickname: '-', father: 'H. Nur', mother: 'Genuk', seq: 5, gender: 'Laki-Laki', born: '1940', dead: '1940', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 6, fullname: 'Siti Khotijah', nickname: 'Is', father: 'H. Nur', mother: 'Genuk', seq: 6, gender: 'Perempuan', born: '1944', dead: '-', partner: 'Mas`ud Sufyan', partnerborn: '1929', partnerdead: '-', child: '2' },
-      { id: 7, fullname: 'M. Syahri', nickname: 'Ri', father: 'H. Nur', mother: 'Genuk', seq: 7, gender: 'Laki-laki', born: '1945', dead: '-', partner: 'Siti Syamsiyah', partnerborn: '1955', partnerdead: '-', child: '3' },
-      { id: 8, fullname: 'M. Bashoni', nickname: 'Bas', father: 'H. Nur', mother: 'Genuk', seq: 8, gender: 'Laki-laki', born: '1949', dead: '-', partner: 'Umi Maisaroh', partnerborn: '1959', partnerdead: '-', child: '6' }
-    ];
-
-    const putuData = [
-      { id: 1, rootanak: 2, fullname: 'Siti Sapurah', nickname: 'Sapur', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 1, gender: 'Perempuan', born: '1951', dead: '-', partner: 'Muh Yadi', partnerborn: '1946', partnerdead: '-', child: '3' },
-      { id: 2, rootanak: 2, fullname: 'Samuji', nickname: 'Samuji', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 2, gender: 'Laki-laki', born: '1954', dead: '-', partner: 'Umi Aiman', partnerborn: '1960', partnerdead: '-', child: '3' },
-      { id: 3, rootanak: 2, fullname: 'Imam Safi`i', nickname: '-', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 3, gender: 'Laki-laki', born: '1956', dead: '1957', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 4, rootanak: 2, fullname: 'Shodiqun', nickname: 'Shodiqun', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 4, gender: 'Laki-laki', born: '1958', dead: '-', partner: 'Siti Nurjannah', partnerborn: '1962', partnerdead: '-', child: '2' },
-      { id: 5, rootanak: 2, fullname: 'Moh. Makin', nickname: 'Makin', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 5, gender: 'Laki-laki', born: '1960', dead: '-', partner: 'Masfufah', partnerborn: '1971', partnerdead: '-', child: '3' },
-      { id: 6, rootanak: 2, fullname: 'M. Salam', nickname: 'Salam', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 6, gender: 'Laki-laki', born: '1963', dead: '-', partner: 'Ngatun', partnerborn: '1970', partnerdead: '-', child: '-' },
-      { id: 7, rootanak: 2, fullname: 'Islamudin', nickname: 'Islamudin', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 7, gender: 'Laki-laki', born: '1965', dead: '-', partner: 'Sriyani', partnerborn: '1968', partnerdead: '-', child: '2' },
-      { id: 8, rootanak: 2, fullname: 'Ihsanuddin', nickname: 'Ihsan', father: 'Moh. Kusnun', mother: 'Siti Aminah', seq: 8, gender: 'Laki-laki', born: '1974', dead: '-', partner: 'Rina Rahmawati', partnerborn: '1978', partnerdead: '-', child: '2' },
-      { id: 9, rootanak: 3, fullname: 'Syahrowardi', nickname: 'Syahro', father: 'Abd. Mu`thi', mother: 'Kholiyah', seq: 1, gender: 'Laki-laki', born: '1964', dead: '-', partner: 'Ulik Anuroh', partnerborn: '-', partnerdead: '-', child: '1' },
-      { id: 10, rootanak: 3, fullname: 'Badi`ah', nickname: 'Badi`', father: 'Abd. Mu`thi', mother: 'Kholiyah', seq: 2, gender: 'Perempuan', born: '1971', dead: '-', partner: 'Masrukin', partnerborn: '-', partnerdead: '-', child: '4' },
-      { id: 11, rootanak: 3, fullname: 'Zarnuji', nickname: 'Jar', father: 'Abd. Mu`thi', mother: 'Kholiyah', seq: 3, gender: 'Laki-laki', born: '1974', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 12, rootanak: 4, fullname: 'Moh. Arif', nickname: 'Moh/Arif', father: 'Abd. Shomad', mother: 'Marsinah', seq: 1, gender: 'Laki-laki', born: '1958', dead: '-', partner: 'Qodriyah', partnerborn: '1966', partnerdead: '-', child: '3' },
-      { id: 13, rootanak: 4, fullname: 'Moh. Zamzuri', nickname: 'Zuri', father: 'Abd. Shomad', mother: 'Marsinah', seq: 2, gender: 'Laki-laki', born: '1960', dead: '-', partner: 'Muthi`atul', partnerborn: '1964', partnerdead: '-', child: '3' },
-      { id: 14, rootanak: 4, fullname: 'Umi Hanik', nickname: 'Nik', father: 'Abd. Shomad', mother: 'Marsinah', seq: 3, gender: 'Perempuan', born: '1963', dead: '-', partner: 'Moh. Munir', partnerborn: '1955', partnerdead: '-', child: '2' },
-      { id: 15, rootanak: 4, fullname: 'Sholihatin', nickname: 'Kah', father: 'Abd. Shomad', mother: 'Marsinah', seq: 4, gender: 'Perempuan', born: '1965', dead: '-', partner: 'Moh. Shofwan', partnerborn: '1965', partnerdead: '-', child: '3' },
-      { id: 16, rootanak: 4, fullname: 'Moh. Tamyiz', nickname: 'Tamyiz', father: 'Abd. Shomad', mother: 'Marsinah', seq: 5, gender: 'Laki-laki', born: '1968', dead: '-', partner: 'Siti Umi Rohmah', partnerborn: '1974', partnerdead: '-', child: '2' },
-      { id: 17, rootanak: 4, fullname: 'Maskub', nickname: 'Maskub', father: 'Abd. Shomad', mother: 'Marsinah', seq: 6, gender: 'Laki-laki', born: '1968', dead: '-', partner: 'Latifatul Mukhoyyaroh', partnerborn: '1975', partnerdead: '-', child: '3' },
-      { id: 18, rootanak: 4, fullname: 'Indasah', nickname: 'In', father: 'Abd. Shomad', mother: 'Marsinah', seq: 7, gender: 'Perempuan', born: '1973', dead: '-', partner: 'Imam Mutamim', partnerborn: '1962', partnerdead: '-', child: '2' },
-      { id: 19, rootanak: 4, fullname: 'Isnaniyah', nickname: 'Is', father: 'Abd. Shomad', mother: 'Marsinah', seq: 8, gender: 'Perempuan', born: '1975', dead: '-', partner: 'Moh. Ridwan', partnerborn: '1970', partnerdead: '-', child: '2' },
-      { id: 20, rootanak: 6, fullname: 'Husnul Hayati', nickname: '-', father: 'Mas`ud Sufyan', mother: 'Siti Khotijah', seq: 1, gender: 'Perempuan', born: '1959', dead: '-', partner: 'Kholiq Sumadi', partnerborn: '1958', partnerdead: '-', child: '2' },
-      { id: 21, rootanak: 6, fullname: 'Husnul Hidayati', nickname: '-', father: 'Mas`ud Sufyan', mother: 'Siti Khotijah', seq: 2, gender: 'Perempuan', born: '1961', dead: '-', partner: 'Thohari', partnerborn: '1955', partnerdead: '-', child: '4' },
-      { id: 22, rootanak: 7, fullname: 'Siti Mu`awanah', nickname: 'Anah', father: 'M. Syahri', mother: 'Siti Syamsiyah', seq: 1, gender: 'Perempuan', born: '1973', dead: '-', partner: 'Humaidi', partnerborn: '1970', partnerdead: '-', child: '3' },
-      { id: 23, rootanak: 7, fullname: 'Imron Fauzi', nickname: 'Imron', father: 'M. Syahri', mother: 'Siti Syamsiyah', seq: 2, gender: 'Laki-laki', born: '1978', dead: '-', partner: 'Mutikah', partnerborn: '1979', partnerdead: '-', child: '1' },
-      { id: 24, rootanak: 7, fullname: 'Kholil Mansur Masrukin', nickname: 'Kholil', father: 'M. Syahri', mother: 'Siti Syamsiyah', seq: 3, gender: 'Laki-laki', born: '1983', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 25, rootanak: 8, fullname: 'Agus Basuki Rohmat', nickname: 'Agus', father: 'M. Bashoni', mother: 'Umi Maisaroh', seq: 1, gender: 'Laki-laki', born: '1975', dead: '-', partner: 'Wiwik Nugraini', partnerborn: '1983', partnerdead: '-', child: '1' },
-      { id: 26, rootanak: 8, fullname: 'Bambang Khoiruddin Br', nickname: 'Bambang', father: 'M. Bashoni', mother: 'Umi Maisaroh', seq: 2, gender: 'Laki-laki', born: '1978', dead: '-', partner: 'Tutik Mardiana', partnerborn: '1983', partnerdead: '-', child: '-' },
-      { id: 27, rootanak: 8, fullname: 'Imam Taroji Rohmatullah', nickname: '-', father: 'M. Bashoni', mother: 'Umi Maisaroh', seq: 3, gender: 'Laki-laki', born: '1980', dead: '-', partner: 'Nanik Rohana', partnerborn: '1980', partnerdead: '-', child: '1' },
-      { id: 28, rootanak: 8, fullname: 'Sabit Akdamana', nickname: 'Sabit', father: 'M. Bashoni', mother: 'Umi Maisaroh', seq: 4, gender: 'Laki-laki', born: '1983', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 29, rootanak: 8, fullname: 'Yeyen Pardiyan Efendi', nickname: 'Yeyen', father: 'M. Bashoni', mother: 'Umi Maisaroh', seq: 5, gender: 'Laki-laki', born: '1986', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 30, rootanak: 8, fullname: 'David Taufiq Irijal', nickname: '-', father: 'M. Bashoni', mother: 'Umi Maisaroh', seq: 6, gender: 'Laki-laki', born: '1989', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-    ];
-
     $(document).ready(function () {
+      // Call the function when the page loads
+      opentableanak();
+    });
 
-      // Function to populate table
-      function populateTable() {
-        const $tableBody = $('#data-table-anak'); // Select table body
+    // Function to populate table anak
+    function opentableanak() {
+      const $tableBody = $('#data-table-anak'); // Select table body
 
-        $.each(anakData, function (index, anak) {
-          // Create table row using jQuery
-          const $row = $('<tr></tr>');
+      $.each(anakData, function (index, anak) {
+        // Create table row using jQuery
+        const $row = $('<tr></tr>');
 
-          // Append sequence number (seq)
-          $row.append(`<td style="text-align: center">${anak.seq}</td>`);
+        // Append sequence number (seq)
+        $row.append(`<td style="text-align: center">${anak.seq}</td>`);
 
-          // Append fullname
-          $row.append(`<td>${anak.fullname}</td>`);
+        // Append fullname
+        $row.append(`<td>${anak.fullname}</td>`);
 
-          // Append nickname
-          $row.append(`<td>${anak.partner}</td>`);
+        // Append nickname
+        $row.append(`<td>${anak.partner}</td>`);
 
-          // Append action buttons
-          const $actionButtons = `
+        // Append action buttons
+        const $actionButtons = `
         <td style="text-align: center">
           <div class="row">
               <div class="col-12 mb-3">
@@ -274,66 +316,13 @@
             </div>
         </td>
       `;
-          $row.append($actionButtons);
+        $row.append($actionButtons);
 
-          // Append the row to the table body
-          $tableBody.append($row);
-        });
+        // Append the row to the table body
+        $tableBody.append($row);
+      });
 
-      }
-
-      // Call the function when the page loads
-      populateTable();
-
-    });
-
-
-    // function to open modal
-    function openmodalanak(id) {
-      // Find the data from anakData array based on the id
-      const anak = anakData.find(a => a.id === id);
-
-      $('#judul-anak').html(anak.fullname);
-      $('#fullname').html(anak.fullname);
-      $('#nickname').html(anak.nickname);
-      $('#father').html(anak.father);
-      $('#mother').html(anak.mother);
-      $('#seq').html(anak.seq);
-      $('#gender').html(anak.gender);
-      $('#born').html(anak.born);
-      $('#dead').html(anak.dead);
-
-      $('#partner').html(anak.partner);
-      $('#partnerborn').html(anak.partnerborn);
-      $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
-
-      $("#modal-detail-info").modal("show");
     }
-
-    // function to open modal
-    function openmodalputu(id) {
-      // Find the data from anakData array based on the id
-      const anak = putuData.find(a => a.id === id);
-
-      $('#judul-anak').html(anak.fullname);
-      $('#fullname').html(anak.fullname);
-      $('#nickname').html(anak.nickname);
-      $('#father').html(anak.father);
-      $('#mother').html(anak.mother);
-      $('#seq').html(anak.seq);
-      $('#gender').html(anak.gender);
-      $('#born').html(anak.born);
-      $('#dead').html(anak.dead);
-
-      $('#partner').html(anak.partner);
-      $('#partnerborn').html(anak.partnerborn);
-      $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
-
-      $("#modal-detail-info").modal("show");
-    }
-
 
     // function to open table putu
     function opentableputu(id, anakname, partner) {
@@ -342,8 +331,8 @@
       // Clear the table body before appending new data
       $tableBody.empty();
 
-      // Find all data from putuData array based on the rootanak
-      const putuList = putuData.filter(a => a.rootanak === id);
+      // Find all data from putuData array based on the root
+      const putuList = putuData.filter(a => a.root === id);
 
       $.each(putuList, function (index, putu) {
         // Create table row using jQuery
@@ -393,20 +382,283 @@
       $('#table-putu').show();
     }
 
+    // function to open table buyut
     function opentablebuyut(id, putuname, partner) {
-      Swal.fire({
-        title: 'Belum Tersedia!',
-        text: 'Data belum ada, silahkan cek lain waktu',
-        icon: 'info',
-        confirmButtonText: 'Okay'
+      const $tableBody = $('#data-table-buyut'); // Select table body
+
+      // Clear the table body before appending new data
+      $tableBody.empty();
+
+      // Find all data from buyutData array based on the root
+      const buyutList = buyutData.filter(a => a.root === id);
+
+      $.each(buyutList, function (index, buyut) {
+        // Create table row using jQuery
+        const $row = $('<tr></tr>');
+
+        // Append sequence number (seq)
+        $row.append(`<td style="text-align: center">${buyut.seq}</td>`);
+
+        // Append fullname
+        $row.append(`<td>${buyut.fullname}</td>`);
+
+        // Append partner's name
+        $row.append(`<td>${buyut.partner}</td>`);
+
+        // Append action buttons
+        const $actionButtons = `
+      <td style="text-align: center">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <button class="btn btn-sm btn-primary" onclick="openmodalbuyut(${buyut.id})">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button class="btn btn-sm btn-success" onclick="opentablecanggah(${buyut.id},'${buyut.fullname}','${buyut.partner}')">
+              <i class="fa-solid fa-child"></i>
+            </button>
+          </div>
+        </div>
+      </td>
+    `;
+        $row.append($actionButtons);
+
+        // Append the row to the table body
+        $tableBody.append($row);
       });
+
+      // Update the title and other elements
+      $('#value-judul-putu').html(putuname);
+      $('#value-judul-pasangan-putu').html(partner);
+
+      // Hide and show relevant sections
+      $('#table-anak').hide();
+      $('#table-putu').hide();
+      $('#table-judul-anak').show();
+      $('#table-judul-putu').show();
+      $('#table-buyut').show();
+    }
+
+    // function to open table buyut
+    function opentablecanggah(id, buyutname, partner) {
+      const $tableBody = $('#data-table-canggah'); // Select table body
+
+      // Clear the table body before appending new data
+      $tableBody.empty();
+
+      // Find all data from buyutData array based on the root
+      const canggahList = canggahData.filter(a => a.root === id);
+
+      $.each(canggahList, function (index, canggah) {
+        // Create table row using jQuery
+        const $row = $('<tr></tr>');
+
+        // Append sequence number (seq)
+        $row.append(`<td style="text-align: center">${canggah.seq}</td>`);
+
+        // Append fullname
+        $row.append(`<td>${canggah.fullname}</td>`);
+
+        // Append partner's name
+        $row.append(`<td>${canggah.partner}</td>`);
+
+        // Append action buttons
+        const $actionButtons = `
+      <td style="text-align: center">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <button class="btn btn-sm btn-primary" onclick="openmodalcanggah(${canggah.id})">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+      </td>
+    `;
+        $row.append($actionButtons);
+
+        // Append the row to the table body
+        $tableBody.append($row);
+      });
+
+      // Update the title and other elements
+      $('#value-judul-buyut').html(buyutname);
+      $('#value-judul-pasangan-buyut').html(partner);
+
+      // Hide and show relevant sections
+      $('#table-anak').hide();
+      $('#table-putu').hide();
+      $('#table-buyut').hide();
+      $('#table-judul-anak').show();
+      $('#table-judul-putu').show();
+      $('#table-judul-buyut').show();
+      $('#table-canggah').show();
+    }
+
+    // function to open modal
+    function openmodalanak(id) {
+      // Find the data from anakData array based on the id
+      const anak = anakData.find(a => a.id === id);
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(anak.father);
+      $('#mother').html(anak.mother);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
+    }
+
+    // function to open modal
+    function openmodalputu(id) {
+      // Find the data from anakData array based on the id
+      const anak = putuData.find(a => a.id === id);
+
+      // cari mama dan papa nya
+      var rootorangtua = anak.root;
+      var mama, papa;
+      const orangtua = anakData.find(b => b.id === rootorangtua);
+
+      // cek untuk menentukan mana papa dan mama nya
+      if (orangtua.gender == 'Perempuan') {
+        mama = orangtua.fullname;
+        papa = orangtua.partner;
+      } else {
+        mama = orangtua.partner;
+        papa = orangtua.fullname;
+      }
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(papa);
+      $('#mother').html(mama);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
+    }
+
+    // function to open modal
+    function openmodalbuyut(id) {
+      // Find the data from anakData array based on the id
+      const anak = buyutData.find(a => a.id === id);
+
+      // cari mama dan papa nya
+      var rootorangtua = anak.root;
+      var mama, papa;
+      const orangtua = putuData.find(b => b.id === rootorangtua);
+
+      // cek untuk menentukan mana papa dan mama nya
+      if (orangtua.gender == 'Perempuan') {
+        mama = orangtua.fullname;
+        papa = orangtua.partner;
+      } else {
+        mama = orangtua.partner;
+        papa = orangtua.fullname;
+      }
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(papa);
+      $('#mother').html(mama);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
+    }
+
+    // function to open modal
+    function openmodalcanggah(id) {
+      // Find the data from anakData array based on the id
+      const anak = canggahData.find(a => a.id === id);
+
+      // cari mama dan papa nya
+      var rootorangtua = anak.root;
+      var mama, papa;
+      const orangtua = buyutData.find(b => b.id === rootorangtua);
+
+      // cek untuk menentukan mana papa dan mama nya
+      if (orangtua.gender == 'Perempuan') {
+        mama = orangtua.fullname;
+        papa = orangtua.partner;
+      } else {
+        mama = orangtua.partner;
+        papa = orangtua.fullname;
+      }
+
+      $('#judul-anak').html(anak.fullname);
+      $('#fullname').html(anak.fullname);
+      $('#nickname').html(anak.nickname);
+      $('#father').html(papa);
+      $('#mother').html(mama);
+      $('#seq').html(anak.seq);
+      $('#gender').html(anak.gender);
+      $('#born').html(anak.born);
+      $('#dead').html(anak.dead);
+
+      $('#partner').html(anak.partner);
+      $('#partnerborn').html(anak.partnerborn);
+      $('#partnerdead').html(anak.partnerdead);
+      $('#child').html(anak.child);
+
+      $("#modal-detail-info").modal("show");
     }
 
     // function untuk kembali ke table anak
     function backtableanak() {
       $('#table-anak').show();
-      $('#table-judul-anak').hide();
       $('#table-putu').hide();
+      $('#table-buyut').hide();
+      $('#table-canggah').hide();
+
+      $('#table-judul-anak').hide();
+      $('#table-judul-putu').hide();
+      $('#table-judul-buyut').hide();
+    }
+
+    // function untuk kembali ke table anak
+    function backtableputu() {
+      $('#table-putu').show();
+      $('#table-buyut').hide();
+      $('#table-canggah').hide();
+
+      $('#table-judul-putu').hide();
+      $('#table-judul-buyut').hide();
+    }
+
+    // function untuk kembali ke table anak
+    function backtablebuyut() {
+      $('#table-buyut').show();
+      $('#table-canggah').hide();
+
+      $('#table-judul-buyut').hide();
     }
   </script>
 </body>
