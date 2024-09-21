@@ -75,7 +75,7 @@
       { id: 24, root: 13, fullname: 'Wildan Mahmud', nickname: 'Wildan', seq: 1, gender: 'Laki-laki', born: '1989', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 25, root: 13, fullname: 'Vina Rohmatul Umah', nickname: 'Vina', seq: 2, gender: 'Perempuan', born: '1992', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 26, root: 13, fullname: 'Abu Hamid Sultoni', nickname: 'Oni', seq: 3, gender: 'Laki-laki', born: '2002', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 27, root: 14, fullname: 'Miftahul Rofifah', nickname: 'Miftah', seq: 1, gender: 'Perempuan', born: '1982', dead: '-', partner: 'Nanang Tri Harianto', partnerborn: '1981', partnerdead: '-', child: '2' },
+      { id: 27, root: 14, fullname: 'Miftakul Rohmah', nickname: 'Miftah', seq: 1, gender: 'Perempuan', born: '1982', dead: '-', partner: 'Nanang Tri Harianto', partnerborn: '1981', partnerdead: '-', child: '2' },
       { id: 28, root: 14, fullname: 'Nurul Hidayatul Ulfa', nickname: 'Ulfa', seq: 2, gender: 'Perempuan', born: '1984', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 29, root: 15, fullname: 'Abid Hidayaturrohman', nickname: 'Sulton', seq: 1, gender: 'Laki-laki', born: '1986', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 30, root: 15, fullname: 'Wahib Fathurrohman', nickname: 'Wahib', seq: 2, gender: 'Laki-laki', born: '1988', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },

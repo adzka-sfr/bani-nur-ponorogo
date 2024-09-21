@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bani Nur</title>
+
+  <!-- Add favicon (icon in tab) -->
+  <link rel="icon" href="children.png" type="image/png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- DataTables CSS -->
+  <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h5>Keturunan dari<br />Mbah H. Nur & Mbah Genuk</h5>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Tahun Lahir</th>
+              <th>Tahun Wafat</th>
+              <th>Nama Pasangan</th>
+              <th>Pasangan Lahir</th>
+              <th>Pasangan Wafat</th>
+              <th>Anak ke</th>
+              <th>Jenkel</th>
+              <th>Jumlah Anak</th>
+              <th>Ayah</th>
+              <th>Ibu</th>
+            </tr>
+          </thead>
+          <tbody id="data-value">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- FontAwesome (already loaded via the CSS link) -->
+
+    <!-- Include the dataAnak.js file -->
+    <script src="listdata.js"></script>
+
+    <script>
+      const tbody = document.getElementById('data-value');
+
+      anakData.forEach(anak => {
+        const row = `
+        <tr>
+          <td>${anak.fullname} (${anak.nickname})</td>
+          <td>${anak.born}</td>
+          <td>${anak.dead}</td>
+          <td>${anak.partner}</td>
+          <td>${anak.partnerborn}</td>
+          <td>${anak.partnerdead}</td>
+          <td>${anak.seq}</td>
+          <td>${anak.gender}</td>
+          <td>${anak.child}</td>
+          <td>${anak.father}</td>
+          <td>${anak.mother}</td>
+        </tr>
+      `;
+        tbody.innerHTML += row;
+      });
+    </script>
+
+</body>
+
+</html>
