@@ -410,6 +410,20 @@
       opentableanak();
     });
 
+    function calculateAge(bornYear, dieYear) {
+      // If the born year is invalid, return "N/A"
+      if (!bornYear || bornYear === '-' || isNaN(bornYear)) {
+        return "-";
+      }
+
+      // Determine the year to calculate from (use die year if available, otherwise use the current year)
+      const currentYear = new Date().getFullYear();
+      const yearToCalculate = (dieYear && dieYear !== '-' && !isNaN(dieYear)) ? dieYear : currentYear;
+
+      // Calculate age
+      return yearToCalculate - bornYear;
+    }
+
     // Function to populate table anak
     function opentableanak() {
       const $tableBody = $('#data-table-anak'); // Select table body
@@ -424,6 +438,24 @@
           descendants = 0;
         }
 
+        // hitung umur anak
+        var statusanak;
+        const ageanak = calculateAge(anak.born, anak.dead);
+        if (anak.dead == '-') {
+          statusanak = '';
+        } else {
+          statusanak = ' - Alm';
+        }
+
+        // hitung umur pasangan
+        var statuspartner;
+        const agepartner = calculateAge(anak.partnerborn, anak.partnerdead);
+        if (anak.dead == '-') {
+          statuspartner = '';
+        } else {
+          statuspartner = ' - Alm';
+        }
+
         // Create table row using jQuery
         const $row = $('<tr></tr>');
 
@@ -431,10 +463,10 @@
         $row.append(`<td style="text-align: center">${anak.seq}</td>`);
 
         // Append fullname
-        $row.append(`<td>${anak.fullname}</td>`);
+        $row.append(`<td>${anak.fullname}<br>(${ageanak}th${statusanak})</td>`);
 
         // Append nickname
-        $row.append(`<td>${anak.partner}</td>`);
+        $row.append(`<td>${anak.partner}<br>(${agepartner}th${statuspartner})</td>`);
 
         if (descendants == 1) {
           // Append action buttons
