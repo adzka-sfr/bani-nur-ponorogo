@@ -38,7 +38,7 @@
       { id: 22, root: 7, fullname: 'Siti Mu`awanah', nickname: 'Anah', seq: 1, gender: 'Perempuan', born: '1973', dead: '-', partner: 'Humaidi', partnerborn: '1970', partnerdead: '-', child: '2' },
       { id: 23, root: 7, fullname: 'Imron Fauzi', nickname: 'Imron', seq: 2, gender: 'Laki-laki', born: '1978', dead: '-', partner: 'Mutikah', partnerborn: '1979', partnerdead: '-', child: '1' },
       { id: 24, root: 7, fullname: 'Kholil Mansur Masrukin', nickname: 'Kholil', seq: 3, gender: 'Laki-laki', born: '1983', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 25, root: 8, fullname: 'Agus Basuki Rohmat', nickname: 'Agus', seq: 1, gender: 'Laki-laki', born: '1975', dead: '-', partner: 'Wiwik Nugraini', partnerborn: '1983', partnerdead: '-', child: '1' },
+      { id: 25, root: 8, fullname: 'Agus Basuki Rohmat', nickname: 'Agus', seq: 1, gender: 'Laki-laki', born: '1975', dead: '-', partner: 'Umi Rosidah', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 26, root: 8, fullname: 'Bambang Khoiruddin Br', nickname: 'Bambang', seq: 2, gender: 'Laki-laki', born: '1978', dead: '-', partner: 'Tutik Mardiana', partnerborn: '1983', partnerdead: '-', child: '-' },
       { id: 27, root: 8, fullname: 'Imam Taroji Rohmatullah', nickname: '-', seq: 3, gender: 'Laki-laki', born: '1980', dead: '-', partner: 'Nanik Rohana', partnerborn: '1980', partnerdead: '-', child: '1' },
       { id: 28, root: 8, fullname: 'Sabit Akdamana', nickname: 'Sabit', seq: 4, gender: 'Laki-laki', born: '1983', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
