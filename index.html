@@ -364,10 +364,40 @@
                     <td>:</td>
                     <th id="partnerdead"></th>
                   </tr>
-                  <tr>
-                    <td>Jumlah anak</td>
+                  <tr id="place-child">
+                    <td>Anak</td>
                     <td>:</td>
                     <td id="child"></td>
+                  </tr>
+                  <tr id="place-jumputu">
+                    <td>Putu</td>
+                    <td>:</td>
+                    <td id="jumputu"></td>
+                  </tr>
+                  <tr>
+                    <td id="place-jumbuyut">Buyut</td>
+                    <td>:</td>
+                    <td id="jumbuyut"></td>
+                  </tr>
+                  <tr id="place-jumcanggah">
+                    <td>Canggah</td>
+                    <td>:</td>
+                    <td id="jumcanggah"></td>
+                  </tr>
+                  <tr id="place-jumwareng">
+                    <td>Wareng</td>
+                    <td>:</td>
+                    <td id="jumwareng"></td>
+                  </tr>
+                  <tr id="place-jumudhegudheg">
+                    <td>Udheg<sup>2</sup></td>
+                    <td>:</td>
+                    <td id="jumudhegudheg"></td>
+                  </tr>
+                  <tr id="place-jumgantungsiwur">
+                    <td>Gantung Siwur</td>
+                    <td>:</td>
+                    <td id="jumgantungsiwur"></td>
                   </tr>
                 </table>
               </div>
@@ -410,6 +440,7 @@
       opentableanak();
     });
 
+    // function to count age
     function calculateAge(bornYear, dieYear) {
       // If the born year is invalid, return "N/A"
       if (!bornYear || bornYear === '-' || isNaN(bornYear)) {
@@ -422,6 +453,12 @@
 
       // Calculate age
       return yearToCalculate - bornYear;
+    }
+
+    // function to count descendants
+    function countDescendants(array, rootValue) {
+      // Filter the provided array based on the root value and count the result
+      return array.filter(item => item.root === rootValue).length;
     }
 
     // Function to populate table anak
@@ -1203,6 +1240,44 @@
       // Find the data from anakData array based on the id
       const anak = anakData.find(a => a.id === id);
 
+      const jumanak = countDescendants(putuData, id);
+      // ambil semua anak => putuData
+      var jumputu = 0;
+      var jumbuyut = 0;
+      var jumcanggah = 0;
+      var jumwareng = 0;
+      var jumudhegudheg = 0;
+      var jumgantungsiwur = 0;
+      const putulist = putuData.filter(a => a.root === id);
+      $.each(putulist, function (index, putu) {
+        jumputu = jumputu + countDescendants(buyutData, putu.id);
+
+        const buyutlist = buyutData.filter(a => a.root === putu.id);
+        $.each(buyutlist, function (index, buyut) {
+          jumbuyut = jumbuyut + countDescendants(canggahData, buyut.id);
+
+          const canggahlist = canggahData.filter(a => a.root === buyut.id);
+          $.each(canggahlist, function (index, canggah) {
+            jumcanggah = jumcanggah + countDescendants(warengData, canggah.id);
+
+            const warenglist = warengData.filter(a => a.root === canggah.id);
+            $.each(warenglist, function (index, wareng) {
+              jumwareng = jumwareng + countDescendants(udhegudhegData, wareng.id);
+
+              const udhegudheglist = udhegudhegData.filter(a => a.root === wareng.id);
+              $.each(udhegudheglist, function (index, udhegudheg) {
+                jumudhegudheg = jumudhegudheg + countDescendants(gantungsiwurData, udhegudheg.id);
+
+                const gantungsiwurlist = gantungsiwurData.filter(a => a.root === udhegudheg.id);
+                $.each(gantungsiwurlist, function (index, gantungsiwur) {
+                  jumgantungsiwur = jumgantungsiwur + countDescendants(gropaksentheData, gantungsiwur.id);
+                })
+              })
+            })
+          })
+        })
+      })
+
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -1216,7 +1291,21 @@
       $('#partner').html(anak.partner);
       $('#partnerborn').html(anak.partnerborn);
       $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
+      $('#child').html(jumanak);
+      $('#jumputu').html(jumputu);
+      $('#jumbuyut').html(jumbuyut);
+      $('#jumcanggah').html(jumcanggah);
+      $('#jumwareng').html(jumwareng);
+      $('#jumudhegudheg').html(jumudhegudheg);
+      $('#jumgantungsiwur').html(jumgantungsiwur);
+
+      $('#place-child').show();
+      $('#place-jumputu').show();
+      $('#place-jumbuyut').show();
+      $('#place-jumcanggah').show();
+      $('#place-jumwareng').show();
+      $('#place-jumudhegudheg').show();
+      $('#place-jumgantungsiwur').show();
 
       $("#modal-detail-info").modal("show");
     }
@@ -1240,6 +1329,39 @@
         papa = orangtua.fullname;
       }
 
+      const jumanak = countDescendants(buyutData, id);
+      // ambil semua anak => buyutData
+      var jumputu = 0;
+      var jumbuyut = 0;
+      var jumcanggah = 0;
+      var jumwareng = 0;
+      var jumudhegudheg = 0;
+      var jumgantungsiwur = 0;
+      const putulist = buyutData.filter(a => a.root === id);
+      $.each(putulist, function (index, putu) {
+        jumputu = jumputu + countDescendants(canggahData, putu.id);
+
+        const buyutlist = canggahData.filter(a => a.root === putu.id);
+        $.each(buyutlist, function (index, buyut) {
+          jumbuyut = jumbuyut + countDescendants(warengData, buyut.id);
+
+          const canggahlist = warengData.filter(a => a.root === buyut.id);
+          $.each(canggahlist, function (index, canggah) {
+            jumcanggah = jumcanggah + countDescendants(udhegudhegData, canggah.id);
+
+            const warenglist = udhegudhegData.filter(a => a.root === canggah.id);
+            $.each(warenglist, function (index, wareng) {
+              jumwareng = jumwareng + countDescendants(gantungsiwurData, wareng.id);
+
+              const udhegudheglist = gantungsiwurData.filter(a => a.root === wareng.id);
+              $.each(udhegudheglist, function (index, udhegudheg) {
+                jumudhegudheg = jumudhegudheg + countDescendants(gropaksentheData, udhegudheg.id);
+              })
+            })
+          })
+        })
+      })
+
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -1253,7 +1375,20 @@
       $('#partner').html(anak.partner);
       $('#partnerborn').html(anak.partnerborn);
       $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
+      $('#child').html(jumanak);
+      $('#jumputu').html(jumputu);
+      $('#jumbuyut').html(jumbuyut);
+      $('#jumcanggah').html(jumcanggah);
+      $('#jumwareng').html(jumwareng);
+      $('#jumudhegudheg').html(jumudhegudheg);
+
+      $('#place-child').show();
+      $('#place-jumputu').show();
+      $('#place-jumbuyut').show();
+      $('#place-jumcanggah').show();
+      $('#place-jumwareng').show();
+      $('#place-jumudhegudheg').show();
+      $('#place-jumgantungsiwur').hide();
 
       $("#modal-detail-info").modal("show");
     }
@@ -1277,6 +1412,34 @@
         papa = orangtua.fullname;
       }
 
+      const jumanak = countDescendants(canggahData, id);
+      // ambil semua anak => canggahData
+      var jumputu = 0;
+      var jumbuyut = 0;
+      var jumcanggah = 0;
+      var jumwareng = 0;
+      var jumudhegudheg = 0;
+      var jumgantungsiwur = 0;
+      const putulist = canggahData.filter(a => a.root === id);
+      $.each(putulist, function (index, putu) {
+        jumputu = jumputu + countDescendants(warengData, putu.id);
+
+        const buyutlist = warengData.filter(a => a.root === putu.id);
+        $.each(buyutlist, function (index, buyut) {
+          jumbuyut = jumbuyut + countDescendants(udhegudhegData, buyut.id);
+
+          const canggahlist = udhegudhegData.filter(a => a.root === buyut.id);
+          $.each(canggahlist, function (index, canggah) {
+            jumcanggah = jumcanggah + countDescendants(gantungsiwurData, canggah.id);
+
+            const warenglist = gantungsiwurData.filter(a => a.root === canggah.id);
+            $.each(warenglist, function (index, wareng) {
+              jumwareng = jumwareng + countDescendants(gropaksentheData, wareng.id);
+            })
+          })
+        })
+      })
+
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -1290,7 +1453,20 @@
       $('#partner').html(anak.partner);
       $('#partnerborn').html(anak.partnerborn);
       $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
+      $('#child').html(jumanak);
+      $('#jumputu').html(jumputu);
+      $('#jumbuyut').html(jumbuyut);
+      $('#jumcanggah').html(jumcanggah);
+      $('#jumwareng').html(jumwareng);
+      $('#jumudhegudheg').html(jumudhegudheg);
+
+      $('#place-child').show();
+      $('#place-jumputu').show();
+      $('#place-jumbuyut').show();
+      $('#place-jumcanggah').show();
+      $('#place-jumwareng').show();
+      $('#place-jumudhegudheg').hide();
+      $('#place-jumgantungsiwur').hide();
 
       $("#modal-detail-info").modal("show");
     }
@@ -1314,6 +1490,29 @@
         papa = orangtua.fullname;
       }
 
+      const jumanak = countDescendants(warengData, id);
+      // ambil semua anak => warengData
+      var jumputu = 0;
+      var jumbuyut = 0;
+      var jumcanggah = 0;
+      var jumwareng = 0;
+      var jumudhegudheg = 0;
+      var jumgantungsiwur = 0;
+      const putulist = warengData.filter(a => a.root === id);
+      $.each(putulist, function (index, putu) {
+        jumputu = jumputu + countDescendants(udhegudhegData, putu.id);
+
+        const buyutlist = udhegudhegData.filter(a => a.root === putu.id);
+        $.each(buyutlist, function (index, buyut) {
+          jumbuyut = jumbuyut + countDescendants(gantungsiwurData, buyut.id);
+
+          const canggahlist = gantungsiwurData.filter(a => a.root === buyut.id);
+          $.each(canggahlist, function (index, canggah) {
+            jumcanggah = jumcanggah + countDescendants(gropaksentheData, canggah.id);
+          })
+        })
+      })
+
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -1327,7 +1526,20 @@
       $('#partner').html(anak.partner);
       $('#partnerborn').html(anak.partnerborn);
       $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
+      $('#child').html(jumanak);
+      $('#jumputu').html(jumputu);
+      $('#jumbuyut').html(jumbuyut);
+      $('#jumcanggah').html(jumcanggah);
+      $('#jumwareng').html(jumwareng);
+      $('#jumudhegudheg').html(jumudhegudheg);
+
+      $('#place-child').show();
+      $('#place-jumputu').show();
+      $('#place-jumbuyut').show();
+      $('#place-jumcanggah').show();
+      $('#place-jumwareng').hide();
+      $('#place-jumudhegudheg').hide();
+      $('#place-jumgantungsiwur').hide();
 
       $("#modal-detail-info").modal("show");
     }
@@ -1351,6 +1563,24 @@
         papa = orangtua.fullname;
       }
 
+      const jumanak = countDescendants(udhegudhegData, id);
+      // ambil semua anak => udhegudhegData
+      var jumputu = 0;
+      var jumbuyut = 0;
+      var jumcanggah = 0;
+      var jumwareng = 0;
+      var jumudhegudheg = 0;
+      var jumgantungsiwur = 0;
+      const putulist = udhegudhegData.filter(a => a.root === id);
+      $.each(putulist, function (index, putu) {
+        jumputu = jumputu + countDescendants(gantungsiwurData, putu.id);
+
+        const buyutlist = gantungsiwurData.filter(a => a.root === putu.id);
+        $.each(buyutlist, function (index, buyut) {
+          jumbuyut = jumbuyut + countDescendants(gropaksentheData, buyut.id);
+        })
+      })
+
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -1364,7 +1594,20 @@
       $('#partner').html(anak.partner);
       $('#partnerborn').html(anak.partnerborn);
       $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
+      $('#child').html(jumanak);
+      $('#jumputu').html(jumputu);
+      $('#jumbuyut').html(jumbuyut);
+      $('#jumcanggah').html(jumcanggah);
+      $('#jumwareng').html(jumwareng);
+      $('#jumudhegudheg').html(jumudhegudheg);
+
+      $('#place-child').show();
+      $('#place-jumputu').show();
+      $('#place-jumbuyut').show();
+      $('#place-jumcanggah').hide();
+      $('#place-jumwareng').hide();
+      $('#place-jumudhegudheg').hide();
+      $('#place-jumgantungsiwur').hide();
 
       $("#modal-detail-info").modal("show");
     }
@@ -1388,6 +1631,19 @@
         papa = orangtua.fullname;
       }
 
+      const jumanak = countDescendants(gantungsiwurData, id);
+      // ambil semua anak => gantungsiwurData
+      var jumputu = 0;
+      var jumbuyut = 0;
+      var jumcanggah = 0;
+      var jumwareng = 0;
+      var jumudhegudheg = 0;
+      var jumgantungsiwur = 0;
+      const putulist = gantungsiwurData.filter(a => a.root === id);
+      $.each(putulist, function (index, putu) {
+        jumputu = jumputu + countDescendants(gropaksentheData, putu.id);
+      })
+
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -1401,7 +1657,20 @@
       $('#partner').html(anak.partner);
       $('#partnerborn').html(anak.partnerborn);
       $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
+      $('#child').html(jumanak);
+      $('#jumputu').html(jumputu);
+      $('#jumbuyut').html(jumbuyut);
+      $('#jumcanggah').html(jumcanggah);
+      $('#jumwareng').html(jumwareng);
+      $('#jumudhegudheg').html(jumudhegudheg);
+
+      $('#place-child').show();
+      $('#place-jumputu').show();
+      $('#place-jumbuyut').hide();
+      $('#place-jumcanggah').hide();
+      $('#place-jumwareng').hide();
+      $('#place-jumudhegudheg').hide();
+      $('#place-jumgantungsiwur').hide();
 
       $("#modal-detail-info").modal("show");
     }
@@ -1425,6 +1694,16 @@
         papa = orangtua.fullname;
       }
 
+      const jumanak = countDescendants(gropaksentheData, id);
+      // ambil semua anak => gantungsiwurData
+      var jumputu = 0;
+      var jumbuyut = 0;
+      var jumcanggah = 0;
+      var jumwareng = 0;
+      var jumudhegudheg = 0;
+      var jumgantungsiwur = 0;
+      
+
       $('#judul-anak').html(anak.fullname);
       $('#fullname').html(anak.fullname);
       $('#nickname').html(anak.nickname);
@@ -1438,7 +1717,20 @@
       $('#partner').html(anak.partner);
       $('#partnerborn').html(anak.partnerborn);
       $('#partnerdead').html(anak.partnerdead);
-      $('#child').html(anak.child);
+      $('#child').html(jumanak);
+      $('#jumputu').html(jumputu);
+      $('#jumbuyut').html(jumbuyut);
+      $('#jumcanggah').html(jumcanggah);
+      $('#jumwareng').html(jumwareng);
+      $('#jumudhegudheg').html(jumudhegudheg);
+
+      $('#place-child').show();
+      $('#place-jumputu').hide();
+      $('#place-jumbuyut').hide();
+      $('#place-jumcanggah').hide();
+      $('#place-jumwareng').hide();
+      $('#place-jumudhegudheg').hide();
+      $('#place-jumgantungsiwur').hide();
 
       $("#modal-detail-info").modal("show");
     }
