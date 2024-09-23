@@ -81,9 +81,52 @@
         partnerdead :'-',
         child       :'-'
       },
-      {id:6,root:0,fullname:'Siti Khotijah',nickname:'Is',father:'H. Nur',mother:'Genuk',seq:6,gender:'Perempuan',born:'1944',dead:'-',partner:'Mas`ud Sufyan',partnerborn:'1929',partnerdead:'-',child:'2'},
-      {id:7,root:0,fullname:'M. Syahri',nickname:'Ri',father:'H. Nur',mother:'Genuk',seq:7,gender:'Laki-laki',born:'1945',dead:'-',partner:'Siti Syamsiyah',partnerborn:'1955',partnerdead:'-',child:'3'},
-      {id:8,root:0,fullname:'M. Bashoni',nickname:'Bas',father:'H. Nur',mother:'Genuk',seq:8,gender:'Laki-laki',born:'1949',dead:'-', partner:'Umi Maisaroh',partnerborn:'1959',partnerdead:'-',child:'6'}
+      {
+        id          :6,
+        root        :0,
+        fullname    :'Siti Khotijah',
+        nickname    :'Is',
+        father      :'H. Nur',
+        mother      :'Genuk',
+        seq         :6,
+        gender      :'Perempuan',
+        born        :'1944',
+        dead        :'-',
+        partner     :'Mas`ud Sufyan',
+        partnerborn :'1929',
+        partnerdead :'-',
+        child       :'2'
+      },
+      {
+        id          :7,
+        root        :0,
+        fullname    :'M. Syahri',
+        nickname    :'Ri',
+        father      :'H. Nur',
+        mother      :'Genuk',
+        seq         :7,
+        gender      :'Laki-laki',
+        born        :'1945',
+        dead        :'-',
+        partner     :'Siti Syamsiyah',
+        partnerborn :'1955',
+        partnerdead :'-',
+        child       :'3'},
+      {
+        id          :8,
+        root        :0,
+        fullname    :'M. Bashoni',
+        nickname    :'Bas',
+        father      :'H. Nur',
+        mother      :'Genuk',
+        seq         :8,
+        gender      :'Laki-laki',
+        born        :'1949',
+        dead        :'-', 
+        partner     :'Umi Maisaroh',
+        partnerborn :'1959',
+        partnerdead :'-',
+        child       :'6'}
     ];
 
     // 2
