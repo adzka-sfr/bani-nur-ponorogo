@@ -232,7 +232,7 @@
       { id: 38, root: 18, fullname: 'Rizqy Faidatul Faradilla', nickname: 'Kikik', seq: 2, gender: 'Perempuan', born: '1995', dead: '-', partner: 'Rizky Fadhlillah', partnerborn: '1996', partnerdead: '-', child: '1' },
       { id: 39, root: 19, fullname: 'M. Adzka Sari`ul Fahmi Ridwan', nickname: 'Fahmi/Adzka', seq: 1, gender: 'Laki-laki', born: '1998', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 40, root: 19, fullname: 'Zahabatuz Zainun Najwa Ridwan', nickname: 'Zaha', seq: 2, gender: 'Perempuan', born: '2006', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 41, root: 20, fullname: 'Khoiruddin Anwar', nickname: '-', seq: 1, gender: 'Laki-laki', born: '1990', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 41, root: 20, fullname: 'Chairudin Anwar ', nickname: 'Aan', seq: 1, gender: 'Laki-laki', born: '1990', dead: '-', partner: 'Mila Maulida', partnerborn: '1994', partnerdead: '-', child: '1' },
       { id: 42, root: 20, fullname: 'Asrul Nasiroh', nickname: '-', seq: 2, gender: 'Perempuan', born: '1998', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 43, root: 21, fullname: 'Ari Ihwanuddin', nickname: '-', seq: 1, gender: 'Laki-laki', born: '1988', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 44, root: 21, fullname: 'Asna Muyasaroh', nickname: '-', seq: 2, gender: 'Perempuan', born: '1991', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
@@ -251,8 +251,8 @@
       { id: 1, root: 1, fullname: 'Haikun Ni`mah', nickname: '-', seq: 1, gender: 'Perempuan', born: '2000', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 2, root: 1, fullname: 'Arina Ulyadina', nickname: '-', seq: 2, gender: 'Perempuan', born: '2002', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 3, root: 2, fullname: 'Ach. Rizqi Faqih Ridho', nickname: '-', seq: 1, gender: 'Laki-laki', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 4, root: 27, fullname: 'Zida Zaidan', nickname: 'Zida', seq: 1, gender: 'Laki-laki', born: '2007', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 5, root: 27, fullname: 'Alfian', nickname: 'Alfian', seq: 2, gender: 'Laki-laki', born: '2015', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 4, root: 27, fullname: 'Muhammad Zida Zaidan', nickname: 'Zida', seq: 1, gender: 'Laki-laki', born: '2007', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 5, root: 27, fullname: 'Alfian Nur Muhammad', nickname: 'Alfian', seq: 2, gender: 'Laki-laki', born: '2015', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 6, root: 37, fullname: 'Aurora Zakkyyatut Thoyyibah', nickname: 'Kiya', seq: 1, gender: 'Perempuan', born: '2019', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 7, root: 37, fullname: 'M. Aqil Irsyad Ma`arif', nickname: 'Aqil', seq: 2, gender: 'Laki-laki', born: '2021', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 8, root: 38, fullname: 'M. Isa Hazairin Rahman', nickname: 'Isa', seq: 1, gender: 'Laki-laki', born: '2022', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
@@ -261,6 +261,7 @@
       { id: 11, root: 24, fullname: 'Anatasya Huri Almahera', nickname: '-', seq: 1, gender: 'Perempuan', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 12, root: 25, fullname: 'Hilma Syafira Isti`nafiatin', nickname: 'Hilma', seq: 1, gender: 'Perempuan', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 13, root: 25, fullname: 'Syifaun Nafis', nickname: 'Nafis', seq: 2, gender: 'Perempuan', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 14, root: 41, fullname: 'Mahya Farhana Yuki', nickname: '-', seq: 1, gender: 'Perempuan', born: '2020', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
 
     // 5
