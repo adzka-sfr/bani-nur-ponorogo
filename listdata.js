@@ -212,7 +212,7 @@
       { id: 18, root: 10, fullname: 'Farah Via Nurrohmi', nickname: '-', seq: 2, gender: 'Perempuan', born: '2000', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 19, root: 10, fullname: 'M. Aqil Al Farabi', nickname: '-', seq: 3, gender: 'Laki-laki', born: '2004', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 20, root: 10, fullname: 'M. Aidu Al Vasina', nickname: '-', seq: 4, gender: 'Laki-laki', born: '2007', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
-      { id: 21, root: 12, fullname: 'Athourrohim', nickname: 'Atho', seq: 1, gender: 'Laki-laki', born: '1980', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 21, root: 12, fullname: 'M. Atho Urrohim', nickname: 'Atho', seq: 1, gender: 'Laki-laki', born: '1987', dead: '-', partner: 'Ulin NR', partnerborn: '1993', partnerdead: '-', child: '2' },
       { id: 22, root: 12, fullname: 'Nilam Safrotul Mufidah', nickname: 'Nilam', seq: 2, gender: 'Perempuan', born: '1990', dead: '-', partner: 'Syaiful Abidin', partnerborn: '1985', partnerdead: '-', child: '2' },
       { id: 23, root: 12, fullname: 'Ainun Nisail Azizah', nickname: 'Inun', seq: 3, gender: 'Perempuan', born: '2000', dead: '-', partner: 'M. Robith Alif Fahmi', partnerborn: '1997', partnerdead: '-', child: '-' },
       { id: 24, root: 13, fullname: 'M. Wildan Mahmud', nickname: 'Wildan', seq: 1, gender: 'Laki-laki', born: '1988', dead: '-', partner: 'Fina Idamatus Silmi', partnerborn: '-', partnerdead: '-', child: '1' },
@@ -262,6 +262,8 @@
       { id: 12, root: 25, fullname: 'Hilma Syafira Isti`nafiatin', nickname: 'Hilma', seq: 1, gender: 'Perempuan', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 13, root: 25, fullname: 'Syifaun Nafis', nickname: 'Nafis', seq: 2, gender: 'Perempuan', born: '-', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 14, root: 41, fullname: 'Mahya Farhana Yuki', nickname: '-', seq: 1, gender: 'Perempuan', born: '2020', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 15, root: 21, fullname: 'Anjani Salma Ainul Izza', nickname: 'Izza', seq: 1, gender: 'Perempuan', born: '2019', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
+      { id: 16, root: 21, fullname: 'Mohammad Yahfed Umair Al Farizi', nickname: 'Izi', seq: 2, gender: 'Laki-laki', born: '2022', dead: '-', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
     ];
 
     // 5
