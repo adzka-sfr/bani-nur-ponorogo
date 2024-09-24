@@ -132,8 +132,33 @@
     // 2
     // data putu
     const putuData = [
-      { id: 1, root: 2, fullname: 'Siti Sapurah', nickname: 'Sapur', seq: 1, gender: 'Perempuan', born: '1951', dead: '-', partner: 'Muh Yadi', partnerborn: '1946', partnerdead: '-', child: '3' },
-      { id: 2, root: 2, fullname: 'Samuji', nickname: 'Samuji', seq: 2, gender: 'Laki-laki', born: '1954', dead: '-', partner: 'Umi Aiman', partnerborn: '1960', partnerdead: '-', child: '3' },
+      {
+        id:1,
+        root:2,
+        fullname:'Siti Sapurah',
+        nickname:'Sapur',
+        seq:1,
+        gender:'Perempuan',
+        born:'1951',
+        dead:'-',
+        partner:'Muh Yadi',
+        partnerborn:'1946',
+        partnerdead:'-',
+        child:'3'},
+      {
+        id:2,
+        root:2,
+        fullname:'Samuji',
+        nickname:'Samuji',
+        seq:2,
+        gender:'Laki-laki',
+        born:'1954',
+        dead:'-',
+        partner:'Umi Aiman',
+        partnerborn:'1960',
+        partnerdead:'-',
+        child:'3'
+      },
       { id: 3, root: 2, fullname: 'Imam Safi`i', nickname: '-', seq: 3, gender: 'Laki-laki', born: '1956', dead: '1957', partner: '-', partnerborn: '-', partnerdead: '-', child: '-' },
       { id: 4, root: 2, fullname: 'Shodiqun', nickname: 'Shodiqun', seq: 4, gender: 'Laki-laki', born: '1958', dead: '-', partner: 'Siti Nurjannah', partnerborn: '1962', partnerdead: '-', child: '2' },
       { id: 5, root: 2, fullname: 'Moh. Makin', nickname: 'Makin', seq: 5, gender: 'Laki-laki', born: '1960', dead: '-', partner: 'Masfufah', partnerborn: '1971', partnerdead: '-', child: '3' },
